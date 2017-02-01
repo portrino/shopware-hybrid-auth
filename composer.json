@@ -1,6 +1,6 @@
 {
   "require": {
-    "hybridauth/hybridauth": "dev-master as 2.8.3"
+    "hybridauth/hybridauth": "dev-master"
   },
   "minimum-stability" : "dev",
   "scripts": {

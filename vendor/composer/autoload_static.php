@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956
+class ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500
 {
     public static $files = array (
         'c65d09b6820da036953a371c8c73a9b1' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/polyfills.php',
@@ -35,7 +35,6 @@ class ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956
     );
 
     public static $classMap = array (
-        'AmazonOAuth2Client' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Amazon/AmazonOAuth2Client.php',
         'Facebook\\Authentication\\AccessToken' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/AccessToken.php',
         'Facebook\\Authentication\\AccessTokenMetadata' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/AccessTokenMetadata.php',
         'Facebook\\Authentication\\OAuth2Client' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/OAuth2Client.php',
@@ -121,7 +120,6 @@ class ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956
         'Hybrid_Provider_Model_OAuth2' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Provider_Model_OAuth2.php',
         'Hybrid_Provider_Model_OpenID' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Provider_Model_OpenID.php',
         'Hybrid_Providers_AOL' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/AOL.php',
-        'Hybrid_Providers_Amazon' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Amazon.php',
         'Hybrid_Providers_Facebook' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Facebook.php',
         'Hybrid_Providers_Foursquare' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Foursquare.php',
         'Hybrid_Providers_Google' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Google.php',
@@ -157,10 +155,10 @@ class ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc2533f7f48f1f59aefbd3997a184e956::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$classMap;
 
         }, null, ClassLoader::class);
     }

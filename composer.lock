@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "037af4ad75cc5329a17cfa0d386a0fb6",
+    "content-hash": "1d5407f630ab68e65da549b0aa1c0bdd",
     "packages": [
         {
             "name": "facebook/graph-sdk",
@@ -119,14 +119,7 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "alias": "2.8.3",
-            "alias_normalized": "2.8.3.0",
-            "version": "9999999-dev",
-            "package": "hybridauth/hybridauth"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "hybridauth/hybridauth": 20
