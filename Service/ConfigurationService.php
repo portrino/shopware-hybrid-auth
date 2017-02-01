@@ -94,9 +94,12 @@ class ConfigurationService implements ConfigurationServiceInterface
         $result = [];
 
         foreach (Port1HybridAuth::PROVIDERS as $PROVIDER) {
-            $result = array_replace_recursive($result,  $this->getProviderConfiguration($PROVIDER));
-        }
+            $config = $this->getProviderConfiguration($PROVIDER);
 
+            if ($config != false) {
+                $result = array_replace_recursive($result,  $this->getProviderConfiguration($PROVIDER));
+            }
+        }
         return $result;
     }
 
@@ -113,6 +116,7 @@ class ConfigurationService implements ConfigurationServiceInterface
         $result = false;
 
         if ($this->isProviderEnabled($provider)) {
+
             $configFile = __DIR__ . '/../Configuration/config.php';
 
             if (!file_exists($configFile)) {
@@ -126,7 +130,7 @@ class ConfigurationService implements ConfigurationServiceInterface
                 $baseUrl = $this->context->getShopContext()->getBaseUrl();
 
                 $result = [
-                    'base_url' => $baseUrl . '/hybridAuthEndpoint',
+                    'base_url' => $baseUrl . '/hybridauth',
                     'debug_mode' => (Boolean)$this->config->getByNamespace('Port1HybridAuth', 'debug_mode'),
                     'debug_file' => $this->config->getByNamespace('Port1HybridAuth', 'debug_file'),
                 ];

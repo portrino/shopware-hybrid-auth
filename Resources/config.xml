@@ -4,6 +4,41 @@
 
         <!--
 
+        General
+
+        -->
+
+        <element type="boolean">
+            <name>general_include_fontawesome</name>
+            <label lang="en">General :: Include FontAwesome</label>
+            <label lang="de">General :: FontAwesome einbinden</label>
+            <value>true</value>
+            <description lang="en">
+                Include FontAwesome from CDN.
+            </description>
+            <description lang="de">
+                FontAwesome vom CDN einbinden.
+            </description>
+        </element>
+
+        <element type="select">
+            <name>general_default_country</name>
+            <label lang="de">General :: Standard Land (fallback)</label>
+            <label lang="en">General :: Default country (fallback)</label>
+            <description lang="de">
+                Wenn kein Land während der Registrierung vom SSO Provider zur Verfügung gestellt wurde,
+                wird dieses als Land des Nutzers gesetzt, da ein Land Vorraussetzung für den Shopware
+                Registrierungsprozess ist.
+            </description>
+            <description lang="en">
+                If no country provided by SSO Provider, during registration this will be used as default,
+                because it is mandatory for a registration.
+            </description>
+            <store>Shopware.apps.Base.store.Country</store>
+        </element>
+
+        <!--
+
         Hybrid Auth
 
         -->
@@ -54,41 +89,6 @@
             <description lang="de">
                 Ort der Datei wo Debug Meldungen hingeschrieben werden.
             </description>
-        </element>
-
-        <!--
-
-        General
-
-        -->
-
-        <element type="boolean">
-            <name>general_include_fontawesome</name>
-            <label lang="en">General :: Include FontAwesome</label>
-            <label lang="de">General :: FontAwesome einbinden</label>
-            <value>true</value>
-            <description lang="en">
-                Include FontAwesome from CDN.
-            </description>
-            <description lang="de">
-                FontAwesome vom CDN einbinden.
-            </description>
-        </element>
-
-        <element type="select">
-            <name>general_default_country</name>
-            <label lang="de">General :: Standard Land (fallback)</label>
-            <label lang="en">General :: Default country (fallback)</label>
-            <description lang="de">
-                Wenn kein Land während der Registrierung vom SSO Provider zur Verfügung gestellt wurde,
-                wird dieses als Land des Nutzers gesetzt, da ein Land Vorraussetzung für den Shopware
-                Registrierungsprozess ist.
-            </description>
-            <description lang="en">
-                If no country provided by SSO Provider, during registration this will be used as default,
-                because it is mandatory for a registration.
-            </description>
-            <store>Shopware.apps.Base.store.Country</store>
         </element>
 
         <!--
@@ -145,61 +145,7 @@
             <description lang="de">
                 Ändern Sie hier den OAuth scope.
                 Kommarsepariert. z.B.: email, user_about_me
-                (Mehr Information unter: ttps://developers.facebook.com/docs/facebook-login/permissions)
-            </description>
-        </element>
-
-        <!--
-
-        LinkedIn
-
-        -->
-
-        <element type="boolean">
-            <name>linkedin_enabled</name>
-            <label lang="en">LinkedIn :: Enabled</label>
-            <label lang="de">LinkedIn :: Aktiviert</label>
-            <description lang="en">
-                Activate LinkedIn social login?
-            </description>
-            <description lang="de">
-                LinkedIn Social LogIn aktivieren?
-            </description>
-        </element>
-
-        <element type="text">
-            <name>linkedin_keys_key</name>
-            <label lang="en">LinkedIn :: Key</label>
-            <label lang="de">LinkedIn :: Key</label>
-            <description lang="en">
-                https://www.linkedin.com/developer/apps/
-            </description>
-            <description lang="de">
-                https://www.linkedin.com/developer/apps/
-            </description>
-        </element>
-
-        <element type="text">
-            <name>linkedin_keys_secret</name>
-            <label lang="en">LinkedIn :: Secret</label>
-            <label lang="de">LinkedIn :: Secret</label>
-            <description lang="en">
-                https://www.linkedin.com/developer/apps/
-            </description>
-            <description lang="de">
-                https://www.linkedin.com/developer/apps/
-            </description>
-        </element>
-
-        <element type="textarea">
-            <name>linkedin_fields</name>
-            <label lang="en">LinkedIn :: Fields</label>
-            <label lang="de">LinkedIn :: Fields</label>
-            <description lang="en">
-
-            </description>
-            <description lang="de">
-
+                (Mehr Information unter: https://developers.facebook.com/docs/facebook-login/permissions)
             </description>
         </element>
 
@@ -296,6 +242,60 @@
             </description>
             <description lang="de">
                 https://sellercentral.amazon.com/gp/homepage.html
+            </description>
+        </element>
+
+        <!--
+
+          LinkedIn
+
+          -->
+
+        <element type="boolean">
+            <name>linkedin_enabled</name>
+            <label lang="en">LinkedIn :: Enabled</label>
+            <label lang="de">LinkedIn :: Aktiviert</label>
+            <description lang="en">
+                Activate LinkedIn social login?
+            </description>
+            <description lang="de">
+                LinkedIn Social LogIn aktivieren?
+            </description>
+        </element>
+
+        <element type="text">
+            <name>linkedin_keys_key</name>
+            <label lang="en">LinkedIn :: Key</label>
+            <label lang="de">LinkedIn :: Key</label>
+            <description lang="en">
+                https://www.linkedin.com/developer/apps/
+            </description>
+            <description lang="de">
+                https://www.linkedin.com/developer/apps/
+            </description>
+        </element>
+
+        <element type="text">
+            <name>linkedin_keys_secret</name>
+            <label lang="en">LinkedIn :: Secret</label>
+            <label lang="de">LinkedIn :: Secret</label>
+            <description lang="en">
+                https://www.linkedin.com/developer/apps/
+            </description>
+            <description lang="de">
+                https://www.linkedin.com/developer/apps/
+            </description>
+        </element>
+
+        <element type="textarea">
+            <name>linkedin_fields</name>
+            <label lang="en">LinkedIn :: Fields</label>
+            <label lang="de">LinkedIn :: Fields</label>
+            <description lang="en">
+
+            </description>
+            <description lang="de">
+
             </description>
         </element>
 

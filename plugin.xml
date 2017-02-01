@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/plugin.xsd">
-    <label lang="de">Portrino Hybrid Auth</label>
-    <label lang="en">Portrino Hybrid Auth</label>
+    <label lang="de">Portrino HybridAuth - Social Login</label>
+    <label lang="en">Portrino HybridAuth - Social Login</label>
 
     <version>1.0.0</version>
     <copyright>(c) by portrino GmbH</copyright>
     <license>proprietary</license>
+    <description lang="de">
+        Dieses Plugin bietet die Möglichkeit das sich Kunden über verschiedene Anbieter wie Facebook, Google, Amazon, usw. anzumelden.
+    </description>
+    <description lang="en">
+        This plugin provides features to login via various social providers like: Facebook, Google, Amazon, etc. as customer.
+    </description>
 
-    <link>http://example.org</link>
+    <link>http://www.portrino.de/</link>
     <author>portrino GmbH</author>
     <compatibility minVersion="5.2.0" />
 

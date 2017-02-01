@@ -7,17 +7,17 @@ $hybridauthLib = $_SERVER['DOCUMENT_ROOT'] . '/custom/plugins/Port1HybridAuth/ve
 
 return
     [
-        "base_url" => "http://localhost/hybridauth-git/hybridauth/",
+        "base_url" => "http://www.example.com/hybridauth/",
         "providers" => [
             "Google" => [
                 "enabled" => true,
                 "keys" => ["id" => "", "secret" => ""],
-                "scope" => ""
+                "scope" => "https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read"
             ],
             "Facebook" => [
                 "enabled" => true,
                 "keys" => ["id" => "", "secret" => ""],
-                "scope" => []
+                "scope" => ['email', 'user_about_me', 'user_birthday', 'user_hometown', 'user_location', 'user_website']
             ],
             // windows live
             "Live" => [

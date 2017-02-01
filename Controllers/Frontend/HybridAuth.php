@@ -8,9 +8,9 @@
  */
 
 /**
- * Class Shopware_Controllers_Frontend_HybridAuthEndpoint
+ * Class Shopware_Controllers_Frontend_HybridAuth
  */
-class Shopware_Controllers_Frontend_HybridAuthEndpoint extends \Enlight_Controller_Action
+class Shopware_Controllers_Frontend_HybridAuth extends \Enlight_Controller_Action
 {
 
     /**
