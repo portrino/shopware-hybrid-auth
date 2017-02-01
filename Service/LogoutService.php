@@ -39,10 +39,6 @@ class LogoutService implements LogoutServiceInterface
         ConfigurationServiceInterface $configurationService)
     {
         $this->configurationService = $configurationService;
-
-        $configurations = $this->configurationService->getAllProviderConfigurations();
-
-        $this->hybridAuth = new \Hybrid_Auth($configurations);
     }
 
     /**
@@ -51,6 +47,10 @@ class LogoutService implements LogoutServiceInterface
     public function logout()
     {
         $result = false;
+
+        $configurations = $this->configurationService->getAllProviderConfigurations();
+
+        $this->hybridAuth = new \Hybrid_Auth($configurations);
 
         if ($this->hybridAuth) {
             $result = $this->hybridAuth->logoutAllProviders();

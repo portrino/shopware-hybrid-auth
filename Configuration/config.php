@@ -17,7 +17,7 @@ return
             "Facebook" => [
                 "enabled" => true,
                 "keys" => ["id" => "", "secret" => ""],
-                "trustForwarded" => false
+                "scope" => []
             ],
             // windows live
             "Live" => [

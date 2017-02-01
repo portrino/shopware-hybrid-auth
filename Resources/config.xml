@@ -4,13 +4,14 @@
 
         <!--
 
-        Debug
+        Hybrid Auth
 
         -->
         <element type="select">
             <name>debug_mode</name>
-            <label lang="en">Debug Mode</label>
-            <label lang="de">Debug Modus</label>
+            <label lang="en">Hybrid Auth :: Debug Mode</label>
+            <label lang="de">Hybrid Auth :: Debug Modus</label>
+            <value>false</value>
             <description lang="en">
                 If you want to enable logging, set 'debug_mode' to true. You can also set it to - "error" To log only error messages.
                 Useful in production - "info" To log info and error messages (ignore debug messages).
@@ -45,8 +46,8 @@
 
         <element type="text">
             <name>debug_file</name>
-            <label lang="en">Debug File</label>
-            <label lang="de">Debug Datei</label>
+            <label lang="en">Hybrid Auth :: Debug File</label>
+            <label lang="de">Hybrid Auth :: Debug Datei</label>
             <description lang="en">
                 File path of the debug file.
             </description>
@@ -61,10 +62,23 @@
 
         -->
 
+        <element type="boolean">
+            <name>general_include_fontawesome</name>
+            <label lang="en">General :: Include FontAwesome</label>
+            <label lang="de">General :: FontAwesome einbinden</label>
+            <value>true</value>
+            <description lang="en">
+                Include FontAwesome from CDN.
+            </description>
+            <description lang="de">
+                FontAwesome vom CDN einbinden.
+            </description>
+        </element>
+
         <element type="select">
             <name>general_default_country</name>
-            <label lang="de">Standard Land (fallback)</label>
-            <label lang="en">Default country (fallback)</label>
+            <label lang="de">General :: Standard Land (fallback)</label>
+            <label lang="en">General :: Default country (fallback)</label>
             <description lang="de">
                 Wenn kein Land während der Registrierung vom SSO Provider zur Verfügung gestellt wurde,
                 wird dieses als Land des Nutzers gesetzt, da ein Land Vorraussetzung für den Shopware
@@ -100,10 +114,10 @@
             <label lang="en">Facebook :: App-ID</label>
             <label lang="de">Facebook :: App-ID</label>
             <description lang="en">
-                https://developers.facebook.com/apps/
+                Enter your App-ID configured under https://developers.facebook.com/apps/
             </description>
             <description lang="de">
-                https://developers.facebook.com/apps/
+                Bitte geben Sie Ihre App-ID welche Sie unter https://developers.facebook.com/apps/ konfiguriert haben ein.
             </description>
         </element>
 
@@ -112,22 +126,26 @@
             <label lang="en">Facebook :: App-Secret</label>
             <label lang="de">Facebook :: App-Geheimcode</label>
             <description lang="en">
-                https://developers.facebook.com/apps/
+                Enter your App-Secret configured under  https://developers.facebook.com/apps/
             </description>
             <description lang="de">
-                https://developers.facebook.com/apps/
+                Bitte geben Sie Ihren App-Geheimcode ein, welchen Sie unter https://developers.facebook.com/apps/ konfiguriert haben ein.
             </description>
         </element>
 
-        <element type="boolean">
-            <name>facebook_trustForwarded</name>
-            <label lang="en">Facebook :: trustForwarded</label>
-            <label lang="de">Facebook :: trustForwarded</label>
+        <element type="textarea">
+            <name>facebook_scope</name>
+            <label lang="en">Facebook :: Scope</label>
+            <label lang="de">Facebook :: Scope</label>
             <description lang="en">
-
+                Enter custom OAuth scope if you wish.
+                Comma separated. E.g.: email, user_about_me
+                (more informations are here: https://developers.facebook.com/docs/facebook-login/permissions)
             </description>
             <description lang="de">
-
+                Ändern Sie hier den OAuth scope.
+                Kommarsepariert. z.B.: email, user_about_me
+                (Mehr Information unter: ttps://developers.facebook.com/docs/facebook-login/permissions)
             </description>
         </element>
 
@@ -317,17 +335,7 @@
             <!--</description>-->
         <!--</element>-->
 
-        <element type="boolean">
-            <name>general_include_fontawesome</name>
-            <label lang="en">Include FontAwesome</label>
-            <label lang="de">FontAwesome einbinden</label>
-            <description lang="en">
-                Include FontAwesome from CDN
-            </description>
-            <description lang="de">
-                FontAwesome vom CDN einbinden
-            </description>
-        </element>
+
 
     </elements>
 </config>
