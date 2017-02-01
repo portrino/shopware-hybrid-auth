@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="port1_hybrid_auth.single_sign_on_service" class="Port1HybridAuth\Service\SingleSignOnService">
+            <argument type="service" id="port1_hybrid_auth.authentication_service_factory"/>
+            <argument type="service" id="port1_hybrid_auth.customer_service"/>
+            <argument type="service" id="port1_hybrid_auth.account_service"/>
+            <argument type="service" id="port1_hybrid_auth.register_service"/>
+            <argument type="service" id="port1_hybrid_auth.logout_service"/>
+        </service>
+
+        <service id="port1_hybrid_auth.customer_service" class="Port1HybridAuth\Service\CustomerService">
+        </service>
+
+        <service id="port1_hybrid_auth.customer_validator" class="Port1HybridAuth\Service\Validator\CustomerValidator">
+            <argument type="service" id="validator" />
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="config" />
+        </service>
+
+        <service id="port1_hybrid_auth.address_validator" class="Port1HybridAuth\Service\Validator\AddressValidator">
+            <argument type="service" id="validator" />
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="config" />
+        </service>
+
+        <service id="port1_hybrid_auth.address_service" class="Port1HybridAuth\Service\AddressService">
+            <argument type="service" id="models" />
+            <argument type="service" id="port1_hybrid_auth.address_validator" />
+        </service>
+
+        <service id="port1_hybrid_auth.register_service" class="Port1HybridAuth\Service\RegisterService">
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="models"/>
+            <argument type="service" id="port1_hybrid_auth.customer_validator"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="PasswordEncoder"/>
+            <argument type="service" id="shopware.number_range_incrementer"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="port1_hybrid_auth.address_service"/>
+            <argument type="service" id="port1_hybrid_auth.country_service"/>
+        </service>
+
+        <service id="port1_hybrid_auth.authentication_service_factory" class="Port1HybridAuth\Factory\AuthenticationServiceFactory">
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
+        <service id="port1_hybrid_auth.configuration_service" class="Port1HybridAuth\Service\ConfigurationService">
+            <argument type="service" id="shopware_storefront.context_service" />
+            <argument type="service" id="Config" />
+            <argument type="service" id="snippets" />
+        </service>
+
+        <service id="port1_hybrid_auth.country_service" class="Port1HybridAuth\Service\CountryService">
+        </service>
+
+        <service id="port1_hybrid_auth.account_service" class="Port1HybridAuth\Service\AccountService">
+        </service>
+
+        <service id="port1_hybrid_auth.amazon_authentication_service" class="Port1HybridAuth\Service\AuthenticationService\AmazonAuthenticationService">
+            <argument>Amazon</argument>
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
+        <service id="port1_hybrid_auth.facebook_authentication_service" class="Port1HybridAuth\Service\AuthenticationService\FacebookAuthenticationService">
+            <argument>Facebook</argument>
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
+        <service id="port1_hybrid_auth.google_authentication_service" class="Port1HybridAuth\Service\AuthenticationService\GoogleAuthenticationService">
+            <argument>Google</argument>
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
+        <service id="port1_hybrid_auth.live_authentication_service" class="Port1HybridAuth\Service\AuthenticationService\LiveAuthenticationService">
+            <argument>Live</argument>
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
+        <service id="port1_hybrid_auth.linkedin_authentication_service" class="Port1HybridAuth\Service\AuthenticationService\LinkedInAuthenticationService">
+            <argument>LinkedIn</argument>
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
+        <service id="port1_hybrid_auth.logout_service" class="Port1HybridAuth\Service\LogoutService">
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
+    </services>
+</container>

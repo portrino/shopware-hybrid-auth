@@ -1,0 +1,15 @@
+{
+  "require": {
+    "hybridauth/hybridauth": "dev-master as 2.8.3"
+  },
+  "minimum-stability" : "dev",
+  "scripts": {
+    "post-autoload-dump": [
+      "@enable-additional-providers-amazon"
+    ],
+    "enable-additional-providers-amazon": [
+      "cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/Providers vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R",
+      "cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/thirdparty vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R"
+    ]
+  }
+}

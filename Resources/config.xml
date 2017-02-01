@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.2/engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+
+        <!--
+
+        Debug
+
+        -->
+        <element type="select">
+            <name>debug_mode</name>
+            <label lang="en">Debug Mode</label>
+            <label lang="de">Debug Modus</label>
+            <description lang="en">
+                If you want to enable logging, set 'debug_mode' to true. You can also set it to - "error" To log only error messages.
+                Useful in production - "info" To log info and error messages (ignore debug messages).
+            </description>
+            <description lang="de">
+                If you want to enable logging, set 'debug_mode' to true. You can also set it to - "error" To log only error messages.
+                Useful in production - "info" To log info and error messages (ignore debug messages).
+            </description>
+            <store>
+                <option>
+                    <value>false</value>
+                    <label lang="de">deaktiviert</label>
+                    <label lang="en">deactivated</label>
+                </option>
+                <option>
+                    <value>true</value>
+                    <label lang="de">aktiviert</label>
+                    <label lang="en">activated</label>
+                </option>
+                <option>
+                    <value>error</value>
+                    <label lang="de">Nur Fehlermeldungen</label>
+                    <label lang="en">Only error messages</label>
+                </option>
+                <option>
+                    <value>info</value>
+                    <label lang="de">Nur Fehler- und Infomeldungen</label>
+                    <label lang="en">Only errors und info messages</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="text">
+            <name>debug_file</name>
+            <label lang="en">Debug File</label>
+            <label lang="de">Debug Datei</label>
+            <description lang="en">
+                File path of the debug file.
+            </description>
+            <description lang="de">
+                Ort der Datei wo Debug Meldungen hingeschrieben werden.
+            </description>
+        </element>
+
+        <!--
+
+        General
+
+        -->
+
+        <element type="select">
+            <name>general_default_country</name>
+            <label lang="de">Standard Land (fallback)</label>
+            <label lang="en">Default country (fallback)</label>
+            <description lang="de">
+                Wenn kein Land während der Registrierung vom SSO Provider zur Verfügung gestellt wurde,
+                wird dieses als Land des Nutzers gesetzt, da ein Land Vorraussetzung für den Shopware
+                Registrierungsprozess ist.
+            </description>
+            <description lang="en">
+                If no country provided by SSO Provider, during registration this will be used as default,
+                because it is mandatory for a registration.
+            </description>
+            <store>Shopware.apps.Base.store.Country</store>
+        </element>
+
+        <!--
+
+        Facebook
+
+        -->
+
+        <element type="boolean">
+            <name>facebook_enabled</name>
+            <label lang="en">Facebook :: Enabled</label>
+            <label lang="de">Facebook :: Aktiviert</label>
+            <description lang="en">
+                Enable facebook social login?
+            </description>
+            <description lang="de">
+                Facebook Social LogIn einschalten?
+            </description>
+        </element>
+
+        <element type="text">
+            <name>facebook_keys_id</name>
+            <label lang="en">Facebook :: App-ID</label>
+            <label lang="de">Facebook :: App-ID</label>
+            <description lang="en">
+                https://developers.facebook.com/apps/
+            </description>
+            <description lang="de">
+                https://developers.facebook.com/apps/
+            </description>
+        </element>
+
+        <element type="text">
+            <name>facebook_keys_secret</name>
+            <label lang="en">Facebook :: App-Secret</label>
+            <label lang="de">Facebook :: App-Geheimcode</label>
+            <description lang="en">
+                https://developers.facebook.com/apps/
+            </description>
+            <description lang="de">
+                https://developers.facebook.com/apps/
+            </description>
+        </element>
+
+        <element type="boolean">
+            <name>facebook_trustForwarded</name>
+            <label lang="en">Facebook :: trustForwarded</label>
+            <label lang="de">Facebook :: trustForwarded</label>
+            <description lang="en">
+
+            </description>
+            <description lang="de">
+
+            </description>
+        </element>
+
+        <!--
+
+        LinkedIn
+
+        -->
+
+        <element type="boolean">
+            <name>linkedin_enabled</name>
+            <label lang="en">LinkedIn :: Enabled</label>
+            <label lang="de">LinkedIn :: Aktiviert</label>
+            <description lang="en">
+                Activate LinkedIn social login?
+            </description>
+            <description lang="de">
+                LinkedIn Social LogIn aktivieren?
+            </description>
+        </element>
+
+        <element type="text">
+            <name>linkedin_keys_key</name>
+            <label lang="en">LinkedIn :: Key</label>
+            <label lang="de">LinkedIn :: Key</label>
+            <description lang="en">
+                https://www.linkedin.com/developer/apps/
+            </description>
+            <description lang="de">
+                https://www.linkedin.com/developer/apps/
+            </description>
+        </element>
+
+        <element type="text">
+            <name>linkedin_keys_secret</name>
+            <label lang="en">LinkedIn :: Secret</label>
+            <label lang="de">LinkedIn :: Secret</label>
+            <description lang="en">
+                https://www.linkedin.com/developer/apps/
+            </description>
+            <description lang="de">
+                https://www.linkedin.com/developer/apps/
+            </description>
+        </element>
+
+        <element type="textarea">
+            <name>linkedin_fields</name>
+            <label lang="en">LinkedIn :: Fields</label>
+            <label lang="de">LinkedIn :: Fields</label>
+            <description lang="en">
+
+            </description>
+            <description lang="de">
+
+            </description>
+        </element>
+
+        <!--
+
+        Google
+
+        -->
+
+        <element type="boolean">
+            <name>google_enabled</name>
+            <label lang="en">Google :: Enabled</label>
+            <label lang="de">Google :: Aktiviert</label>
+            <description lang="en">
+                Activate Google social login?
+            </description>
+            <description lang="de">
+                Google Social LogIn aktivieren?
+            </description>
+        </element>
+
+        <element type="text">
+            <name>google_keys_id</name>
+            <label lang="en">Google :: Client-ID</label>
+            <label lang="de">Google :: Client-ID</label>
+            <description lang="en">
+                https://console.developers.google.com/apis/credentials
+            </description>
+            <description lang="de">
+                https://console.developers.google.com/apis/credentials
+            </description>
+        </element>
+
+        <element type="text">
+            <name>google_keys_secret</name>
+            <label lang="en">Google :: Clientkey</label>
+            <label lang="de">Google :: Clientschlüssel</label>
+            <description lang="en">
+                https://console.developers.google.com/apis/credentials
+            </description>
+            <description lang="de">
+                https://console.developers.google.com/apis/credentials
+            </description>
+        </element>
+
+        <element type="textarea">
+            <name>google_scope</name>
+            <label lang="en">Google :: Scope</label>
+            <label lang="de">Google :: Scope</label>
+            <description lang="en">
+                https://developers.google.com/identity/protocols/googlescopes
+            </description>
+            <description lang="de">
+                https://developers.google.com/identity/protocols/googlescopes
+            </description>
+        </element>
+
+        <!--
+
+        Amazon
+
+        -->
+
+        <element type="boolean">
+            <name>amazon_enabled</name>
+            <label lang="en">Amazon :: Enabled</label>
+            <label lang="de">Amazon :: Aktiviert</label>
+            <description lang="en">
+                Activate Amazon social login?
+            </description>
+            <description lang="de">
+                Amazon Social LogIn aktivieren?
+            </description>
+        </element>
+
+        <element type="text">
+            <name>amazon_keys_id</name>
+            <label lang="en">Amazon :: Client-ID</label>
+            <label lang="de">Amazon :: Client-ID</label>
+            <description lang="en">
+                https://sellercentral.amazon.com/gp/homepage.html
+            </description>
+            <description lang="de">
+                https://sellercentral.amazon.com/gp/homepage.html
+            </description>
+        </element>
+
+        <element type="text">
+            <name>amazon_keys_secret</name>
+            <label lang="en">Amazon :: Client Secret</label>
+            <label lang="de">Amazon :: Client Secret</label>
+            <description lang="en">
+                https://sellercentral.amazon.com/gp/homepage.html
+            </description>
+            <description lang="de">
+                https://sellercentral.amazon.com/gp/homepage.html
+            </description>
+        </element>
+
+        <!--<element type="boolean">-->
+            <!--<name>live_enabled</name>-->
+            <!--<label lang="en">Windows Live :: Enabled</label>-->
+            <!--<label lang="de">Windows Live :: Aktiviert</label>-->
+            <!--<description lang="en">-->
+                <!--Activate Windows Live social login?-->
+            <!--</description>-->
+            <!--<description lang="de">-->
+                <!--Windows Live Social LogIn aktivieren?-->
+            <!--</description>-->
+        <!--</element>-->
+
+        <!--<element type="text">-->
+            <!--<name>live_keys_id</name>-->
+            <!--<label lang="en">Windows Live :: Application Id</label>-->
+            <!--<label lang="de">Windows Live :: Application Id</label>-->
+            <!--<description lang="en">-->
+                <!--https://apps.dev.microsoft.com/-->
+            <!--</description>-->
+            <!--<description lang="de">-->
+                <!--https://apps.dev.microsoft.com/-->
+            <!--</description>-->
+        <!--</element>-->
+
+        <!--<element type="text">-->
+            <!--<name>live_keys_secret</name>-->
+            <!--<label lang="en">Windows Live :: Application Secrets</label>-->
+            <!--<label lang="de">Windows Live :: Application Secret</label>-->
+            <!--<description lang="en">-->
+                <!--https://apps.dev.microsoft.com/-->
+            <!--</description>-->
+            <!--<description lang="de">-->
+                <!--https://apps.dev.microsoft.com/-->
+            <!--</description>-->
+        <!--</element>-->
+
+        <element type="boolean">
+            <name>general_include_fontawesome</name>
+            <label lang="en">Include FontAwesome</label>
+            <label lang="de">FontAwesome einbinden</label>
+            <description lang="en">
+                Include FontAwesome from CDN
+            </description>
+            <description lang="de">
+                FontAwesome vom CDN einbinden
+            </description>
+        </element>
+
+    </elements>
+</config>

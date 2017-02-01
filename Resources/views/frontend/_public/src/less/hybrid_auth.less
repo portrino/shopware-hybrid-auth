@@ -1,0 +1,58 @@
+.port1--hybrid--auth {
+    margin-bottom: 30px;
+
+    .single--sign--on {
+        border: none;
+        color: #ffffff;
+        display: block;
+        margin-bottom: 10px;
+        overflow: hidden;
+        position: relative;
+        padding-left: 44px;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+
+        &.amazon {
+            background-color: #ff9900;
+
+            &:hover {
+                background-color: darken(#ff9900, 15%);
+            }
+        }
+        &.google {
+            background-color: #4285f4;
+
+            &:hover {
+                background-color: darken(#4285f4, 15%);
+            }
+        }
+        &.facebook {
+            background-color: #2d4373;
+
+            &:hover {
+                background-color: darken(#2d4373, 15%);
+            }
+        }
+        &.linkedin {
+            background-color: #0077b5;
+
+            &:hover {
+                background-color: darken(#0077b5, 15%);
+            }
+        }
+
+        span {
+            position: absolute;
+            left: 2px;
+            top: 1px;
+            bottom: 0;
+            width: 32px;
+            line-height: 34px;
+            font-size: 1.6em;
+            text-align: center;
+            border-right: 1px solid rgba(0,0,0,0.2);
+        }
+    }
+}
