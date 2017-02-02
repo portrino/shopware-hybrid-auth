@@ -265,7 +265,7 @@
 
         <element type="text">
             <name>linkedin_keys_key</name>
-            <label lang="en">LinkedIn :: Key</label>
+            <label lang="en">LinkedIn :: Kunden-ID</label>
             <label lang="de">LinkedIn :: Key</label>
             <description lang="en">
                 https://www.linkedin.com/developer/apps/
@@ -277,7 +277,7 @@
 
         <element type="text">
             <name>linkedin_keys_secret</name>
-            <label lang="en">LinkedIn :: Secret</label>
+            <label lang="en">LinkedIn :: Kundengeheimnis</label>
             <label lang="de">LinkedIn :: Secret</label>
             <description lang="en">
                 https://www.linkedin.com/developer/apps/
@@ -290,7 +290,7 @@
         <element type="textarea">
             <name>linkedin_fields</name>
             <label lang="en">LinkedIn :: Fields</label>
-            <label lang="de">LinkedIn :: Fields</label>
+            <label lang="de">LinkedIn :: Felder</label>
             <description lang="en">
 
             </description>
