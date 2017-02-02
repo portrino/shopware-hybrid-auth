@@ -259,7 +259,7 @@ class User
     /**
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone()
     {
         return $this->phone;
     }
@@ -267,7 +267,7 @@ class User
     /**
      * @param string $phone
      */
-    public function setPhone(string $phone)
+    public function setPhone($phone)
     {
         $this->phone = $phone;
     }
@@ -275,7 +275,7 @@ class User
     /**
      * @return string
      */
-    public function getCountryName(): string
+    public function getCountryName()
     {
         return $this->countryName;
     }
@@ -283,7 +283,7 @@ class User
     /**
      * @param string $countryName
      */
-    public function setCountryName(string $countryName)
+    public function setCountryName($countryName)
     {
         $this->countryName = $countryName;
     }
@@ -291,7 +291,7 @@ class User
     /**
      * @return string
      */
-    public function getLocale(): string
+    public function getLocale()
     {
         return $this->locale;
     }
@@ -299,7 +299,7 @@ class User
     /**
      * @param string $locale
      */
-    public function setLocale(string $locale)
+    public function setLocale($locale)
     {
         $this->locale = $locale;
     }
