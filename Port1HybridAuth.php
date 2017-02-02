@@ -19,6 +19,8 @@ use Shopware\Components\Plugin\Context\UninstallContext;
 use Shopware\Components\Theme\LessDefinition;
 use Shopware\Models\Customer\Customer;
 
+use Exception;
+
 /**
  * Class Port1HybridAuth
  * @package Port1HybridAuth
@@ -197,10 +199,6 @@ class Port1HybridAuth extends Plugin
 
     /**
      * checkLicense()-method for Port1HybridAuth
-     *
-     * @param bool $throwException
-     *
-     * @return bool|string
      */
     public function checkLicense($throwException = true)
     {
@@ -209,7 +207,7 @@ class Port1HybridAuth extends Plugin
             $l = Shopware()->License();
         } catch (\Exception $e) {
             if ($throwException) {
-                throw new \Exception('The license manager has to be installed and active');
+                throw new Exception('The license manager has to be installed and active');
             } else {
                 return false;
             }
@@ -227,12 +225,12 @@ class Port1HybridAuth extends Plugin
                 $r = $i === sha1($c. $u . $r, true);
             }
             if (!$r && $throwException) {
-                throw new \Exception('License check for module "' . $module . '" has failed.');
+                throw new Exception('License check for module "' . $module . '" has failed.');
             }
             return $r;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             if ($throwException) {
-                throw new \Exception('License check for module "' . $module . '" has failed.');
+                throw new Exception('License check for module "' . $module . '" has failed.');
             } else {
                 return false;
             }

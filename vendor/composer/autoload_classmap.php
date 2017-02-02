@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AmazonOAuth2Client' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Amazon/AmazonOAuth2Client.php',
     'Facebook\\Authentication\\AccessToken' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/AccessToken.php',
     'Facebook\\Authentication\\AccessTokenMetadata' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/AccessTokenMetadata.php',
     'Facebook\\Authentication\\OAuth2Client' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/OAuth2Client.php',
@@ -91,6 +92,7 @@ return array(
     'Hybrid_Provider_Model_OAuth2' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/Provider_Model_OAuth2.php',
     'Hybrid_Provider_Model_OpenID' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/Provider_Model_OpenID.php',
     'Hybrid_Providers_AOL' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/AOL.php',
+    'Hybrid_Providers_Amazon' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Amazon.php',
     'Hybrid_Providers_Facebook' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Facebook.php',
     'Hybrid_Providers_Foursquare' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Foursquare.php',
     'Hybrid_Providers_Google' => $vendorDir . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Google.php',

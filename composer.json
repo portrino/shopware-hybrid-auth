@@ -5,11 +5,15 @@
   "minimum-stability" : "dev",
   "scripts": {
     "post-autoload-dump": [
-      "@enable-additional-providers-amazon"
+      "@enable-additional-providers-amazon",
+      "@remove-all-other-additional-providers"
     ],
     "enable-additional-providers-amazon": [
       "cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/Providers vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R",
       "cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/thirdparty vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R"
+    ],
+    "remove-all-other-additional-providers": [
+      "rm -rf vendor/hybridauth/hybridauth/additional-providers/"
     ]
   }
 }
