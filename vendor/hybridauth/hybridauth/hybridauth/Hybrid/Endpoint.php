@@ -32,6 +32,31 @@ class Hybrid_Endpoint {
 				parse_str($_SERVER["QUERY_STRING"], $request);
 			}
 		}
+        $request = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            if (filter_input(INPUT_GET, 'get')) {
+                $request["get"] = filter_input(INPUT_GET, 'get');
+            }
+            if (filter_input(INPUT_GET, 'hauth_start')) {
+                $request["hauth_start"] = filter_input(INPUT_GET, 'hauth_start');
+            }
+            if (filter_input(INPUT_GET, 'hauth_done')) {
+                $request["hauth_done"] = filter_input(INPUT_GET, 'hauth_done');
+            }
+
+        } else {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (filter_input(INPUT_POST, 'get')) {
+                    $request["get"] = filter_input(INPUT_POST, 'get');
+                }
+                if (filter_input(INPUT_POST, 'hauth_start')) {
+                    $request["hauth_start"] = filter_input(INPUT_POST, 'hauth_start');
+                }
+                if (filter_input(INPUT_POST, 'hauth_done')) {
+                    $request["hauth_done"] = filter_input(INPUT_POST, 'hauth_done');
+                }
+            }
+        }
 
 		// Setup request variable
 		$this->request = $request;
