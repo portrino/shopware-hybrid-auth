@@ -19,44 +19,36 @@ class Hybrid_Endpoint {
 	/**
 	 * Process the current request
 	 *
-	 * @param array $request The current request parameters. Leave as null to default to use $_REQUEST.
+	 * @param array $request The current request parameters. Leave as null to default to use.
 	 */
 	public function __construct($request = null) {
 		if (is_null($request)) {
-			// Fix a strange behavior when some provider call back ha endpoint
-			// with /index.php?hauth.done={provider}?{args}...
-			// >here we need to parse $_SERVER[QUERY_STRING]
-			$request = $_REQUEST;
-			if (isset($_SERVER["QUERY_STRING"]) && strrpos($_SERVER["QUERY_STRING"], '?')) {
-				$_SERVER["QUERY_STRING"] = str_replace("?", "&", $_SERVER["QUERY_STRING"]);
-				parse_str($_SERVER["QUERY_STRING"], $request);
-			}
-		}
-        $request = [];
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (filter_input(INPUT_GET, 'get')) {
-                $request["get"] = filter_input(INPUT_GET, 'get');
-            }
-            if (filter_input(INPUT_GET, 'hauth_start')) {
-                $request["hauth_start"] = filter_input(INPUT_GET, 'hauth_start');
-            }
-            if (filter_input(INPUT_GET, 'hauth_done')) {
-                $request["hauth_done"] = filter_input(INPUT_GET, 'hauth_done');
-            }
+            $request = [];
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                if (filter_input(INPUT_GET, 'get')) {
+                    $request["get"] = filter_input(INPUT_GET, 'get');
+                }
+                if (filter_input(INPUT_GET, 'hauth_start')) {
+                    $request["hauth_start"] = filter_input(INPUT_GET, 'hauth_start');
+                }
+                if (filter_input(INPUT_GET, 'hauth_done')) {
+                    $request["hauth_done"] = filter_input(INPUT_GET, 'hauth_done');
+                }
 
-        } else {
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if (filter_input(INPUT_POST, 'get')) {
-                    $request["get"] = filter_input(INPUT_POST, 'get');
-                }
-                if (filter_input(INPUT_POST, 'hauth_start')) {
-                    $request["hauth_start"] = filter_input(INPUT_POST, 'hauth_start');
-                }
-                if (filter_input(INPUT_POST, 'hauth_done')) {
-                    $request["hauth_done"] = filter_input(INPUT_POST, 'hauth_done');
+            } else {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    if (filter_input(INPUT_POST, 'get')) {
+                        $request["get"] = filter_input(INPUT_POST, 'get');
+                    }
+                    if (filter_input(INPUT_POST, 'hauth_start')) {
+                        $request["hauth_start"] = filter_input(INPUT_POST, 'hauth_start');
+                    }
+                    if (filter_input(INPUT_POST, 'hauth_done')) {
+                        $request["hauth_done"] = filter_input(INPUT_POST, 'hauth_done');
+                    }
                 }
             }
-        }
+		}
 
 		// Setup request variable
 		$this->request = $request;
@@ -88,7 +80,7 @@ class Hybrid_Endpoint {
 	/**
 	 * Process the current request
 	 *
-	 * @param array $request The current request parameters. Leave as null to default to use $_REQUEST.
+	 * @param array $request The current request parameters. Leave as null to default to use.
 	 * @return Hybrid_Endpoint
 	 */
 	public static function process($request = null) {

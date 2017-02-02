@@ -4,83 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d5407f630ab68e65da549b0aa1c0bdd",
+    "content-hash": "4f24cb0f1905435fdf6858a4fabcf3c8",
     "packages": [
         {
-            "name": "facebook/graph-sdk",
-            "version": "5.4.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/facebook/php-graph-sdk.git",
-                "reference": "5d0c4865e80e231d48a4571841bd018828fe58e1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/5d0c4865e80e231d48a4571841bd018828fe58e1",
-                "reference": "5d0c4865e80e231d48a4571841bd018828fe58e1",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.4|^7.0"
-            },
-            "require-dev": {
-                "guzzlehttp/guzzle": "~5.0",
-                "mockery/mockery": "~0.8",
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
-                "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Facebook\\": "src/Facebook/"
-                },
-                "files": [
-                    "src/Facebook/polyfills.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Facebook Platform"
-            ],
-            "authors": [
-                {
-                    "name": "Facebook",
-                    "homepage": "https://github.com/facebook/php-graph-sdk/contributors"
-                }
-            ],
-            "description": "Facebook SDK for PHP",
-            "homepage": "https://github.com/facebook/php-graph-sdk",
-            "keywords": [
-                "facebook",
-                "sdk"
-            ],
-            "time": "2017-01-19 15:42:20"
-        },
-        {
             "name": "hybridauth/hybridauth",
-            "version": "dev-master",
+            "version": "dev-port1-hybrid-auth",
             "source": {
                 "type": "git",
-                "url": "https://github.com/hybridauth/hybridauth.git",
-                "reference": "a4b0835d581dace55c3ea115aabebe4f6767ba80"
+                "url": "https://github.com/portrino/hybridauth.git",
+                "reference": "b579b446e93511bf01fe240edf3c7d73c421b6f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/a4b0835d581dace55c3ea115aabebe4f6767ba80",
-                "reference": "a4b0835d581dace55c3ea115aabebe4f6767ba80",
+                "url": "https://api.github.com/repos/portrino/hybridauth/zipball/b579b446e93511bf01fe240edf3c7d73c421b6f9",
+                "reference": "b579b446e93511bf01fe240edf3c7d73c421b6f9",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "facebook/graph-sdk": "^5.4",
                 "php": ">=5.2.0"
             },
             "type": "library",
@@ -92,7 +33,6 @@
                     "hybridauth/Hybrid"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "(MIT or GPL-3.0+)"
             ],
@@ -105,17 +45,24 @@
             "description": "Open source social sign on PHP library.",
             "homepage": "http://hybridauth.sourceforge.net",
             "keywords": [
-                "OpenId",
                 "facebook",
                 "google",
                 "hybridauth",
                 "login",
                 "oauth",
+                "openid",
                 "social",
                 "twitter",
                 "yahoo"
             ],
-            "time": "2017-01-31 19:35:08"
+            "support": {
+                "email": "hybridauth@gmail.com",
+                "forum": "https://groups.google.com/d/forum/hybridauth",
+                "issues": "https://github.com/hybridauth/hybridauth/issues",
+                "gitter": "https://gitter.im/hybridauth/hybridauth",
+                "source": "https://github.com/portrino/hybridauth/tree/port1-hybrid-auth"
+            },
+            "time": "2017-02-02 16:04:34"
         }
     ],
     "packages-dev": [],

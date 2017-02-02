@@ -6,5 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Facebook\\' => array($vendorDir . '/facebook/graph-sdk/src/Facebook'),
 );

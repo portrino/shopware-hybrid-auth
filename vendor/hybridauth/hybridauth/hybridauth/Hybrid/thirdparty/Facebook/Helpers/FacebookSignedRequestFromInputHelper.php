@@ -143,11 +143,7 @@ abstract class FacebookSignedRequestFromInputHelper
      */
     public function getRawSignedRequestFromPost()
     {
-        if (isset($_POST['signed_request'])) {
-            return $_POST['signed_request'];
-        }
-
-        return null;
+        return filter_input(INPUT_POST, 'signed_request') ? filter_input(INPUT_POST, 'signed_request') : null;
     }
 
     /**

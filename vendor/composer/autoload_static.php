@@ -4,26 +4,8 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500
+class ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c
 {
-    public static $files = array (
-        'c65d09b6820da036953a371c8c73a9b1' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/polyfills.php',
-    );
-
-    public static $prefixLengthsPsr4 = array (
-        'F' => 
-        array (
-            'Facebook\\' => 9,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'Facebook\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook',
-        ),
-    );
-
     public static $prefixesPsr0 = array (
         'H' => 
         array (
@@ -120,23 +102,16 @@ class ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500
         'Hybrid_Provider_Model_OAuth1' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Provider_Model_OAuth1.php',
         'Hybrid_Provider_Model_OAuth2' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Provider_Model_OAuth2.php',
         'Hybrid_Provider_Model_OpenID' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Provider_Model_OpenID.php',
-        'Hybrid_Providers_AOL' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/AOL.php',
         'Hybrid_Providers_Amazon' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Amazon.php',
         'Hybrid_Providers_Facebook' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Facebook.php',
-        'Hybrid_Providers_Foursquare' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Foursquare.php',
         'Hybrid_Providers_Google' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Google.php',
         'Hybrid_Providers_LinkedIn' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/LinkedIn.php',
-        'Hybrid_Providers_Live' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Live.php',
-        'Hybrid_Providers_OpenID' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/OpenID.php',
-        'Hybrid_Providers_Twitter' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Twitter.php',
-        'Hybrid_Providers_Yahoo' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Yahoo.php',
         'Hybrid_Storage' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Storage.php',
         'Hybrid_Storage_Interface' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/StorageInterface.php',
         'Hybrid_User' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/User.php',
         'Hybrid_User_Activity' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/User_Activity.php',
         'Hybrid_User_Contact' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/User_Contact.php',
         'Hybrid_User_Profile' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/User_Profile.php',
-        'LightOpenID' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/OpenID/LightOpenID.php',
         'LinkedIn' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/LinkedIn/LinkedIn.php',
         'LinkedInException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/LinkedIn/LinkedIn.php',
         'OAuth1Client' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/OAuth/OAuth1Client.php',
@@ -157,10 +132,8 @@ class ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitfc30babb5d9f02059c2ba9cad8523500::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c::$classMap;
 
         }, null, ClassLoader::class);
     }

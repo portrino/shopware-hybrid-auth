@@ -18,10 +18,6 @@ class Shopware_Controllers_Frontend_HybridAuth extends \Enlight_Controller_Actio
      */
     public function indexAction()
     {
-        if ($this->Request()->getParam('hauth_done')) {
-            $_REQUEST['hauth_done'] = $this->Request()->getParam('hauth_done');
-        }
-
         \Hybrid_Endpoint::process();
     }
 

@@ -28,7 +28,7 @@ class Hybrid_Provider_Model_OAuth2 extends Hybrid_Provider_Model {
 
   /**
    * Provider API wrapper
-   * @var OAuth2Client 
+   * @var OAuth2Client
    */
   public $api = null;
 
@@ -106,15 +106,30 @@ class Hybrid_Provider_Model_OAuth2 extends Hybrid_Provider_Model {
    * {@inheritdoc}
    */
   function loginFinish() {
-    $error = (array_key_exists('error', $_REQUEST)) ? $_REQUEST['error'] : "";
 
+    $error = "";
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $error = filter_input(INPUT_GET, 'error') ? filter_input(INPUT_GET, 'error') : "";
+    } else {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $error = filter_input(INPUT_POST, 'error') ? filter_input(INPUT_POST, 'error') : "";
+        }
+    }
     // check for errors
     if ($error) {
       throw new Exception("Authentication failed! {$this->providerId} returned an error: $error", 5);
     }
 
+
     // try to authenticate user
-    $code = (array_key_exists('code', $_REQUEST)) ? $_REQUEST['code'] : "";
+    $code = "";
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+      $code = filter_input(INPUT_GET, 'code') ? filter_input(INPUT_GET, 'code') : "";
+    } else {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $code = filter_input(INPUT_POST, 'code') ? filter_input(INPUT_POST, 'code') : "";
+      }
+    }
 
     try {
       $this->api->authenticate($code);
