@@ -41,19 +41,6 @@ class Port1HybridAuth extends Plugin
      */
     public function install(InstallContext $context)
     {
-        $globalConfig = Shopware()->Container()->get('kernel')->getConfig();
-
-        $key = false;
-        if (isset($globalConfig['portrino_hybrid_auth_key'])) {
-            $key = Shopware()->Container()->get('kernel')->getConfig()['portrino_hybrid_auth_key'];
-        }
-
-        if($key != false && $key === 'o&2A7Z:g9R"}HX^92oXF') {
-
-        } else {
-            $this->checkLicense();
-        }
-
         $this->addIdentityFieldsToUser();
 
         parent::install($context);
@@ -197,43 +184,4 @@ class Port1HybridAuth extends Plugin
         return new ArrayCollection([$lessDefinition]);
     }
 
-    /**
-     * checkLicense()-method for Port1HybridAuth
-     */
-    public function checkLicense($throwException = true)
-    {
-        try {
-            /** @var $l Shopware_Components_License */
-            $l = Shopware()->License();
-        } catch (\Exception $e) {
-            if ($throwException) {
-                throw new Exception('The license manager has to be installed and active');
-            } else {
-                return false;
-            }
-        }
-
-        try {
-            static $r, $module = 'Port1HybridAuth';
-            if(!isset($r)) {
-                $s = base64_decode('apwTqN8JETGE0H4Lsua3iN8LQIg=');
-                $c = base64_decode('KlWlRRWKbn2eHzcsbQ7HYZKAse0=');
-                $r = sha1(uniqid('', true), true);
-                $i = $l->getLicense($module, $r);
-                $t = $l->getCoreLicense();
-                $u = strlen($t) === 20 ? sha1($t . $s . $t, true) : 0;
-                $r = $i === sha1($c. $u . $r, true);
-            }
-            if (!$r && $throwException) {
-                throw new Exception('License check for module "' . $module . '" has failed.');
-            }
-            return $r;
-        } catch (Exception $e) {
-            if ($throwException) {
-                throw new Exception('License check for module "' . $module . '" has failed.');
-            } else {
-                return false;
-            }
-        }
-    }
 }
