@@ -3,7 +3,7 @@
     <label lang="de">Portrino HybridAuth - Social Login</label>
     <label lang="en">Portrino HybridAuth - Social Login</label>
 
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <copyright>(c) by portrino GmbH</copyright>
     <license>proprietary</license>
     <description lang="de">
@@ -18,7 +18,19 @@
     <compatibility minVersion="5.2.0" />
 
     <changelog version="1.0.0">
-        <changes lang="de">Veröffentlichung</changes>
-        <changes lang="en">Release</changes>
+        <changes lang="de">
+            Veröffentlichung
+        </changes>
+        <changes lang="en">
+            Release
+        </changes>
+    </changelog>
+    <changelog version="1.0.1">
+        <changes lang="de">
+            checkLicence Methode wurde entfernt für geplante Quelloffenheit
+        </changes>
+        <changes lang="en">
+            remove checkLicence method to make plugin open source.
+        </changes>
     </changelog>
 </plugin>
