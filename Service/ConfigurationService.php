@@ -128,9 +128,12 @@ class ConfigurationService implements ConfigurationServiceInterface
             if (is_array($configTemplate)) {
 
                 $baseUrl = $this->context->getShopContext()->getBaseUrl();
+                $virtualUrl = $this->context->getShopContext()->getShop()->getUrl();
+
+                $url = rtrim($baseUrl, '/') . rtrim($virtualUrl, '/') . '/hybridauth';
 
                 $result = [
-                    'base_url' => $baseUrl . '/hybridauth',
+                    'base_url' => $url,
                     'debug_mode' => (Boolean)$this->config->getByNamespace('Port1HybridAuth', 'debug_mode'),
                     'debug_file' => $this->config->getByNamespace('Port1HybridAuth', 'debug_file'),
                 ];

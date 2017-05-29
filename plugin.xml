@@ -3,7 +3,7 @@
     <label lang="de">Portrino HybridAuth - Social Login</label>
     <label lang="en">Portrino HybridAuth - Social Login</label>
 
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <copyright>(c) by portrino GmbH</copyright>
     <license>proprietary</license>
     <description lang="de">
@@ -31,6 +31,14 @@
         </changes>
         <changes lang="en">
             remove checkLicence method to make plugin open source.
+        </changes>
+    </changelog>
+    <changelog version="1.0.2">
+        <changes lang="de">
+            Fehler der HybridAuth base_url Konfiguration im Zusammenhang mit Subshops wurde behoben.
+        </changes>
+        <changes lang="en">
+            A bug in base_url configuration in conjunction with subshops was fixed.
         </changes>
     </changelog>
 </plugin>

@@ -1,4 +1,4 @@
-# Portrino HybridAuth - 1.0.1#
+# Portrino HybridAuth - 1.0.2#
 
 Shopware Plugin for Social Login
 
