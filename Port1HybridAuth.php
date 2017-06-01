@@ -147,12 +147,37 @@ class Port1HybridAuth extends Plugin
     {
         /** @var \Enlight_Controller_Action $controller */
         $controller = $args->get('subject');
-
         $actionName = $controller->Front()->Request()->getActionName();
 
-        /**
-         * do trigger sso logout
-         */
+        if ($actionName === 'profile') {
+            /** @var \Enlight_Controller_Action $controller */
+            $controller = $args->get('subject');
+            $view = $controller->View();
+            $view->addTemplateDir($this->getPath() . '/Resources/views');
+
+            $userId = $controller->get('session')->get('sUserId');
+            /** @var Customer $customer */
+            $customer = $controller->get('models')->find(Customer::class, $userId);
+
+            /** @var ConfigurationServiceInterface $configurationService */
+            $configurationService = $this->container->get('port1_hybrid_auth.configuration_service');
+            $enabledProviders = $configurationService->getEnabledProviders();
+
+            $isSocialRegistered = false;
+            foreach ($enabledProviders as $enabledProvider => $label) {
+                $attribute = $customer->getAttribute();
+                $getProviderIdentity = 'get' . ucfirst(strtolower($enabledProvider)) . 'Identity';
+                if (method_exists($attribute, $getProviderIdentity)) {
+                    $identity = $attribute->$getProviderIdentity();
+                    if ($identity != '') {
+                        $isSocialRegistered = true;
+                        break;
+                    }
+                }
+            }
+            $view->assign('isSocialRegistered', $isSocialRegistered);
+        }
+
         if ($actionName === 'logout') {
             /** @var SingleSignOnServiceInterface $singleSignOnService */
             $singleSignOnService = $this->container->get('port1_hybrid_auth.single_sign_on_service');
