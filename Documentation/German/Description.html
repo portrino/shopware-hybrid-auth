@@ -1,0 +1,86 @@
+<meta charset="utf-8">
+
+<!--
+# --------------------------------------------------------
+#  Copy from here on to Shopware Store
+# --------------------------------------------------------
+-->
+
+
+<style>
+    .hybrid--bullet-list {
+        margin-left: 20px;
+    }
+</style>
+
+<h1>
+    <a id="Portrino_HybridAuth__100_0"></a>
+    Login über Facebook, Google+, LinkedIn und Amazon
+</h1>
+
+<p>
+    Mit dem Plugin <strong>Portrino HybridAuth - Social Login</strong> ermöglichen Sie Ihren Kunden
+    sich direkt über eines der bekannten sozialen Netzwerke Facebook, Google+, LinkedIn und Amazon
+    in Ihrem Shop zu registrieren.
+</p>
+
+<p>
+    Logins über soziale Netzwerke sind sehr hilfreich und werden bereits von vielen Web-Applikationen angeboten um
+    sich schnell und einfach via Single-Sign-On zu registrieren bzw. einzuloggen.
+</p>
+
+<p>
+    Geben Sie Ihren Kunden die Chance sich mit einem Klick zu <span style="font-style: italic;">connecten</span>!
+</p>
+
+<h3><a id="Prozess_fr_neue_Kunden_13"></a>Prozess für neue Kunden</h3>
+
+<p>Wenn ein neuer Kunde sich via Social Login in Ihrem Shop registriert, wird er als Kunde in der Datenbank<br>angelegt
+    und danach sofort eingeloggt.</p>
+<p>Sollten seine Stammdaten nicht vollständig sein, muss er diese spätestens im Checkout Prozess ausfüllen.</p>
+<p>Wir haben uns dagegen entschieden eine zusätzlichen Registrerungsschritt mit der Abfrage der restlichen
+    Stammdaten<br>nach dem Social Login einzubauen, da dies möglicherweise ein Hürde für den Kunden darstellt.</p>
+
+<h3><a id="Prozess_bei_bestehenden_Kunden_23"></a>Prozess bei bestehenden Kunden</h3>
+<p>Ist ein Nutzer bereits registrierter Kunde in Ihrem Shop wird dieser solange der Social Login Cookie aktiv ist<br>eingeloggt.
+    Ist der Cookie nicht mehr verfügbar oder die Session abgelaufen kann der Nutzer sich über<br>einen Klick auf den
+    jeweiligen Social Login Button anmelden. Eine erneute Registrierung ist nicht notwendig.</p>
+<p>Hinweis: Die Identifierung des Kunden erfolgt über seine eindeutige ID, welche vom Social Provider vergeben wird.</p>
+
+<h4><a id="Spezial_Fall_Kunde_mit_gleicher_EMail_Adresse_bereits_im_System_31"></a>
+    Spezial Fall: “Kunde mit gleicher E-Mail Adresse bereits im System”
+</h4>
+<p>Ist beispielsweise ein Kunde bereits via Google in Ihrem Shop registriert und möchte sich später via<br>Facebook
+    anmelden und hat bei beiden Social Providern die gleiche E-Mail Adresse, so werden beide<br>Identitäten verknüpft.
+    Im Shop bleibt er ein Nutzer. Dieser Fall tritt jedoch recht selten auf, da die meisten<br>Nutzer sich üblicherweise
+    über einen Social Provider anmelden.</p>
+
+<h4><a id="Spezial_Fall_Passwort_38"></a>Spezial Fall: Passwort</h4>
+<p>
+    Um den Single Sign On Prozess so schlank wie möglich zu halten haben wir auf einen Zwischenschritt zur Registrierung
+    verzichtet. Dadurch wird der Nutzer direkt im Shop eingeloggt. Jedoch hat er dadurch keine Möglichkeit ein Passwort
+    für seinen Account zu vergeben.
+</p>
+
+<p>
+    Es wird ein zufälliges Passwort generiert und während des Single Sign On für den Kunden vergeben, da Shopware dies
+    voraussetzt.
+</p>
+
+<p>
+    Die einzige Möglichkeit das Passwort zu ändern ist es dieses via Anmeldeformular zurückzusetzen. Der Kunde bekommt<br>
+    dann eine E-Mail und kann via Link das Passwort zurücksetzen.
+</p>
+
+<p>
+    Für Nutzer, die sich via Social Network registriert haben, wird nach dem Login unter <em>Persönliche Daten</em> ein
+    Hinweis eingeblendet. Dieser Hinweis enthält zudem den Link zum <em>Passwort zurücksetzen</em> Formular. (Der
+    Hinweistext kann von Ihnen als Shop-Betreiber frei konfiguriert werden. Weitere Informationen entnehmen Sie bitte
+    den Installationshinweisen.)
+</p>
+
+<h3><a id="Prozess_beim_Ausloggen_48"></a>Prozess beim Ausloggen</h3>
+<p>
+    Wenn ein angemeldeter Kunde den “Logout Button” klickt, loggen wir Ihn auch von allen Social Providers aus und<br>
+    invalidieren die Session. Bei Facebook, Google etc. selbst ist er natürlich noch angemeldet.
+</p>
