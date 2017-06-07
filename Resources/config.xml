@@ -299,6 +299,44 @@
             </description>
         </element>
 
+        <!--
+
+        TYPO3
+
+        -->
+
+        <element type="boolean">
+            <name>typo3_enabled</name>
+            <label lang="en">TYPO3 :: Enabled</label>
+            <label lang="de">TYPO3 :: Aktiviert</label>
+            <description lang="en">
+                Activate TYPO3 OAuth login?
+            </description>
+            <description lang="de">
+                TYPO3 OAuth Login aktivieren?
+            </description>
+        </element>
+
+        <element type="text">
+            <name>typo3_keys_id</name>
+            <label lang="en">TYPO3 :: Client-ID</label>
+            <label lang="de">TYPO3 :: Client-ID</label>
+            <description lang="en">
+            </description>
+            <description lang="de">
+            </description>
+        </element>
+
+        <element type="text">
+            <name>typo3_keys_secret</name>
+            <label lang="en">TYPO3 :: Client Secret</label>
+            <label lang="de">TYPO3 :: Client Secret</label>
+            <description lang="en">
+            </description>
+            <description lang="de">
+            </description>
+        </element>
+
         <!--<element type="boolean">-->
             <!--<name>live_enabled</name>-->
             <!--<label lang="en">Windows Live :: Enabled</label>-->

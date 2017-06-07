@@ -84,6 +84,11 @@
             <argument type="service" id="port1_hybrid_auth.configuration_service" />
         </service>
 
+        <service id="port1_hybrid_auth.typo3_authentication_service" class="Port1HybridAuth\Service\AuthenticationService\Typo3AuthenticationService">
+            <argument>Typo3</argument>
+            <argument type="service" id="port1_hybrid_auth.configuration_service" />
+        </service>
+
         <service id="port1_hybrid_auth.logout_service" class="Port1HybridAuth\Service\LogoutService">
             <argument type="service" id="port1_hybrid_auth.configuration_service" />
         </service>
