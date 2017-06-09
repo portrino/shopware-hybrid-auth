@@ -64,9 +64,6 @@ class Hybrid_Providers_Typo3 extends Hybrid_Provider_Model_OAuth2
         require_once Hybrid_Auth::$config['path_libraries'] . 'OAuth/OAuth2Client.php';
         require_once Hybrid_Auth::$config['path_libraries'] . 'Typo3/Typo3OAuth2Client.php';
 
-        require_once Hybrid_Auth::$config['path_libraries'] . 'Typo3/PersistentData/PersistentDataInterface.php';
-        require_once Hybrid_Auth::$config['path_libraries'] . 'Typo3/PersistentData/SessionPersistentDataHandler.php';
-
         // create a new OAuth2 client instance
         $this->api = new Typo3OAuth2Client(
             $this->config['keys']['id'],
