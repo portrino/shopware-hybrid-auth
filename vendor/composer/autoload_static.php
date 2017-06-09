@@ -6,6 +6,32 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c
 {
+    public static $files = array (
+        'c65d09b6820da036953a371c8c73a9b1' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/polyfills.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
+        'F' => 
+        array (
+            'Facebook\\' => 9,
+        ),
+        'C' => 
+        array (
+            'Composer\\Installers\\' => 20,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Facebook\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook',
+        ),
+        'Composer\\Installers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
         'H' => 
         array (
@@ -18,80 +44,6 @@ class ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c
 
     public static $classMap = array (
         'AmazonOAuth2Client' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Amazon/AmazonOAuth2Client.php',
-        'Facebook\\Authentication\\AccessToken' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/AccessToken.php',
-        'Facebook\\Authentication\\AccessTokenMetadata' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/AccessTokenMetadata.php',
-        'Facebook\\Authentication\\OAuth2Client' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Authentication/OAuth2Client.php',
-        'Facebook\\Exceptions\\FacebookAuthenticationException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookAuthenticationException.php',
-        'Facebook\\Exceptions\\FacebookAuthorizationException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookAuthorizationException.php',
-        'Facebook\\Exceptions\\FacebookClientException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookClientException.php',
-        'Facebook\\Exceptions\\FacebookOtherException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookOtherException.php',
-        'Facebook\\Exceptions\\FacebookResponseException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookResponseException.php',
-        'Facebook\\Exceptions\\FacebookResumableUploadException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookResumableUploadException.php',
-        'Facebook\\Exceptions\\FacebookSDKException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookSDKException.php',
-        'Facebook\\Exceptions\\FacebookServerException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookServerException.php',
-        'Facebook\\Exceptions\\FacebookThrottleException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Exceptions/FacebookThrottleException.php',
-        'Facebook\\Facebook' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Facebook.php',
-        'Facebook\\FacebookApp' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FacebookApp.php',
-        'Facebook\\FacebookBatchRequest' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FacebookBatchRequest.php',
-        'Facebook\\FacebookBatchResponse' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FacebookBatchResponse.php',
-        'Facebook\\FacebookClient' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FacebookClient.php',
-        'Facebook\\FacebookRequest' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FacebookRequest.php',
-        'Facebook\\FacebookResponse' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FacebookResponse.php',
-        'Facebook\\FileUpload\\FacebookFile' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FileUpload/FacebookFile.php',
-        'Facebook\\FileUpload\\FacebookResumableUploader' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FileUpload/FacebookResumableUploader.php',
-        'Facebook\\FileUpload\\FacebookTransferChunk' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FileUpload/FacebookTransferChunk.php',
-        'Facebook\\FileUpload\\FacebookVideo' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FileUpload/FacebookVideo.php',
-        'Facebook\\FileUpload\\Mimetypes' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/FileUpload/Mimetypes.php',
-        'Facebook\\GraphNodes\\Birthday' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/Birthday.php',
-        'Facebook\\GraphNodes\\Collection' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/Collection.php',
-        'Facebook\\GraphNodes\\GraphAchievement' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphAchievement.php',
-        'Facebook\\GraphNodes\\GraphAlbum' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphAlbum.php',
-        'Facebook\\GraphNodes\\GraphApplication' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphApplication.php',
-        'Facebook\\GraphNodes\\GraphCoverPhoto' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphCoverPhoto.php',
-        'Facebook\\GraphNodes\\GraphEdge' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphEdge.php',
-        'Facebook\\GraphNodes\\GraphEvent' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphEvent.php',
-        'Facebook\\GraphNodes\\GraphGroup' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphGroup.php',
-        'Facebook\\GraphNodes\\GraphList' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphList.php',
-        'Facebook\\GraphNodes\\GraphLocation' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphLocation.php',
-        'Facebook\\GraphNodes\\GraphNode' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphNode.php',
-        'Facebook\\GraphNodes\\GraphNodeFactory' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphNodeFactory.php',
-        'Facebook\\GraphNodes\\GraphObject' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphObject.php',
-        'Facebook\\GraphNodes\\GraphObjectFactory' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphObjectFactory.php',
-        'Facebook\\GraphNodes\\GraphPage' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphPage.php',
-        'Facebook\\GraphNodes\\GraphPicture' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphPicture.php',
-        'Facebook\\GraphNodes\\GraphSessionInfo' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphSessionInfo.php',
-        'Facebook\\GraphNodes\\GraphUser' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/GraphNodes/GraphUser.php',
-        'Facebook\\Helpers\\FacebookCanvasHelper' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Helpers/FacebookCanvasHelper.php',
-        'Facebook\\Helpers\\FacebookJavaScriptHelper' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Helpers/FacebookJavaScriptHelper.php',
-        'Facebook\\Helpers\\FacebookPageTabHelper' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Helpers/FacebookPageTabHelper.php',
-        'Facebook\\Helpers\\FacebookRedirectLoginHelper' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Helpers/FacebookRedirectLoginHelper.php',
-        'Facebook\\Helpers\\FacebookSignedRequestFromInputHelper' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Helpers/FacebookSignedRequestFromInputHelper.php',
-        'Facebook\\HttpClients\\FacebookCurl' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/HttpClients/FacebookCurl.php',
-        'Facebook\\HttpClients\\FacebookCurlHttpClient' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/HttpClients/FacebookCurlHttpClient.php',
-        'Facebook\\HttpClients\\FacebookGuzzleHttpClient' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/HttpClients/FacebookGuzzleHttpClient.php',
-        'Facebook\\HttpClients\\FacebookHttpClientInterface' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/HttpClients/FacebookHttpClientInterface.php',
-        'Facebook\\HttpClients\\FacebookStream' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/HttpClients/FacebookStream.php',
-        'Facebook\\HttpClients\\FacebookStreamHttpClient' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/HttpClients/FacebookStreamHttpClient.php',
-        'Facebook\\HttpClients\\HttpClientsFactory' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/HttpClients/HttpClientsFactory.php',
-        'Facebook\\Http\\GraphRawResponse' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Http/GraphRawResponse.php',
-        'Facebook\\Http\\RequestBodyInterface' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Http/RequestBodyInterface.php',
-        'Facebook\\Http\\RequestBodyMultipart' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Http/RequestBodyMultipart.php',
-        'Facebook\\Http\\RequestBodyUrlEncoded' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Http/RequestBodyUrlEncoded.php',
-        'Facebook\\PersistentData\\FacebookMemoryPersistentDataHandler' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PersistentData/FacebookMemoryPersistentDataHandler.php',
-        'Facebook\\PersistentData\\FacebookSessionPersistentDataHandler' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PersistentData/FacebookSessionPersistentDataHandler.php',
-        'Facebook\\PersistentData\\PersistentDataFactory' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PersistentData/PersistentDataFactory.php',
-        'Facebook\\PersistentData\\PersistentDataInterface' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PersistentData/PersistentDataInterface.php',
-        'Facebook\\PseudoRandomString\\McryptPseudoRandomStringGenerator' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PseudoRandomString/McryptPseudoRandomStringGenerator.php',
-        'Facebook\\PseudoRandomString\\OpenSslPseudoRandomStringGenerator' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PseudoRandomString/OpenSslPseudoRandomStringGenerator.php',
-        'Facebook\\PseudoRandomString\\PseudoRandomStringGeneratorFactory' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PseudoRandomString/PseudoRandomStringGeneratorFactory.php',
-        'Facebook\\PseudoRandomString\\PseudoRandomStringGeneratorInterface' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PseudoRandomString/PseudoRandomStringGeneratorInterface.php',
-        'Facebook\\PseudoRandomString\\PseudoRandomStringGeneratorTrait' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PseudoRandomString/PseudoRandomStringGeneratorTrait.php',
-        'Facebook\\PseudoRandomString\\RandomBytesPseudoRandomStringGenerator' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PseudoRandomString/RandomBytesPseudoRandomStringGenerator.php',
-        'Facebook\\PseudoRandomString\\UrandomPseudoRandomStringGenerator' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/PseudoRandomString/UrandomPseudoRandomStringGenerator.php',
-        'Facebook\\SignedRequest' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/SignedRequest.php',
-        'Facebook\\Url\\FacebookUrlDetectionHandler' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Url/FacebookUrlDetectionHandler.php',
-        'Facebook\\Url\\FacebookUrlManipulator' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Url/FacebookUrlManipulator.php',
-        'Facebook\\Url\\UrlDetectionInterface' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/Facebook/Url/UrlDetectionInterface.php',
         'Hybrid_Auth' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Auth.php',
         'Hybrid_Endpoint' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Endpoint.php',
         'Hybrid_Error' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/Error.php',
@@ -112,8 +64,6 @@ class ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c
         'Hybrid_User_Activity' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/User_Activity.php',
         'Hybrid_User_Contact' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/User_Contact.php',
         'Hybrid_User_Profile' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/User_Profile.php',
-        'LinkedIn' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/LinkedIn/LinkedIn.php',
-        'LinkedInException' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/LinkedIn/LinkedIn.php',
         'OAuth1Client' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/OAuth/OAuth1Client.php',
         'OAuth2Client' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/OAuth/OAuth2Client.php',
         'OAuthConsumer' => __DIR__ . '/..' . '/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/OAuth/OAuth.php',
@@ -132,6 +82,8 @@ class ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitb59350a5d12a5d6ca90ad26eff0cce5c::$classMap;
 

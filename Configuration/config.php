@@ -38,8 +38,8 @@ return
                 "enabled" => true,
                 "keys" => ["id" => "", "secret" => ""],
 //                "wrapper" => [
-//                    "class" => "Typo3OAuth2Client",
-//                    "path" => $hybridauthLib . 'hybridauth/Hybrid/thirdparty/Typo3/Typo3OAuth2Client.php'
+//                    "class" => "Typo3",
+//                    "path" => $hybridauthLib . 'hybridauth/Hybrid/Providers/Typo3.php'
 //                ]
             ],
         ],
