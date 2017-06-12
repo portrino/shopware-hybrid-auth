@@ -28,6 +28,9 @@
         }
     ],
     "minimum-stability": "dev",
+    "extra": {
+        "installer-name": "Port1HybridAuth"
+    },
     "scripts": {
         "post-autoload-dump": [
             "@enable-additional-providers-amazon",
