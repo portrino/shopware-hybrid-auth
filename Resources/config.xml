@@ -37,6 +37,21 @@
             <store>Shopware.apps.Base.store.Country</store>
         </element>
 
+        <element type="boolean">
+            <name>general_force_sso</name>
+            <label lang="en">General :: Force Single Sign-On</label>
+            <label lang="de">General :: Single Sign-On erzwingen</label>
+            <value>false</value>
+            <description lang="en">
+                The shop can only be viewed with an active login session. Therefor the user will be forced to authenticate
+                using the selected OAuth2 Provider in the plugin configuration.
+            </description>
+            <description lang="de">
+                Der Shop kann nur mit einer aktiven Login-Session angezeigt werden. Deshalt wird der Benutzer gezwungen
+                sich mittels dem in der Plugin Konfiguration ausgewählten OAuth2 Anbieter zu authentifizieren.
+            </description>
+        </element>
+
         <!--
 
         Hybrid Auth

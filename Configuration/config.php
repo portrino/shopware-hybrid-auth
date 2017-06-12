@@ -34,14 +34,6 @@ return
                 "enabled" => true,
                 "keys" => ["id" => "", "secret" => ""],
             ],
-            "Typo3" => [
-                "enabled" => true,
-                "keys" => ["id" => "", "secret" => ""],
-//                "wrapper" => [
-//                    "class" => "Typo3",
-//                    "path" => $hybridauthLib . 'hybridauth/Hybrid/Providers/Typo3.php'
-//                ]
-            ],
         ],
         // If you want to enable logging, set 'debug_mode' to true.
         // You can also set it to
