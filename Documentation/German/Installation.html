@@ -347,7 +347,7 @@
     für die verschiedenen Sprachen vor und klicken Sie auf Speichern. Anschließend Shop-Cache leeren (Strg+Alt+x).
 </p>
 
-<h2>Hinweise</h2>
+<h2>Häufige Fehler &amp; Hinweise</h2>
 
 <ul class="hybrid--bullet-list">
     <li>
@@ -358,6 +358,17 @@
         Fehlermeldung "Error: redirect_uri_mismatch / Google, does not match the ones authorized for the OAuth client."
         Deutet darauf hin, dass die Redirect URIs nicht korrekt eingegeben wurden. Prüfen Sie ggf. auch die
         hinterlegten Parameter.
+    </li>
+    <li>
+        Zur Konfiguration von Google erreichen uns oft Anfragen zu folgendem Fehler: "401. That’s an error. / Error:
+        invalid_client / The OAuth client was not found." Wenn dieser Fehler auch bei Ihnen auftritt, sollten Sie die
+        OAuth-Client-ID prüfen und ggf. einige Minuten warten, bis Google den internen Cache geleert hat.
+    </li>
+    <li>
+        Facebook: Sollten Sie die folgende Fehlermeldung erhalten "App ist nicht eingerichtet. This app is still in
+        development mode, and you don't have access to it. ..." ist Ihre App bei Facebook noch nicht auf "public"
+        geschalten.
+        https://stackoverflow.com/questions/21775198/facebook-api-this-app-is-in-development-mode
     </li>
 </ul>
 
