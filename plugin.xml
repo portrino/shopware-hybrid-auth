@@ -3,7 +3,7 @@
     <label lang="de">Portrino HybridAuth - Social Login</label>
     <label lang="en">Portrino HybridAuth - Social Login</label>
 
-    <version>1.1.0</version>
+    <version>1.1.2</version>
     <copyright>(c) by portrino GmbH</copyright>
     <license>proprietary</license>
     <description lang="de">
@@ -20,11 +20,13 @@
     <changelog version="1.1.2">
         <changes lang="de">
             Service/ConfigurationService aktualisiert -> spaltet die Methode getProviderConfiguration() in
-            getProviderConfiguration() und getProviderConfigurationFromConfigFile()
+            getProviderConfiguration() und getProviderConfigurationFromConfigFile().
+            scope="shop" zu den Plugin-Konfigurationsfeldern hinzugefügt um Sub-Shops zu unterstützen.
         </changes>
         <changes lang="en">
             Updates Service/ConfigurationService -> splits method getProviderConfiguration() into
-            getProviderConfiguration() and getProviderConfigurationFromConfigFile()
+            getProviderConfiguration() and getProviderConfigurationFromConfigFile().
+            Added scope="shop" to the plugin configuration fields to support sub-shops.
         </changes>
     </changelog>
 
