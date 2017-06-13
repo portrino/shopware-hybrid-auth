@@ -8,7 +8,7 @@
 
         -->
 
-        <element type="boolean">
+        <element type="boolean" scope="shop">
             <name>general_include_fontawesome</name>
             <label lang="en">General :: Include FontAwesome</label>
             <label lang="de">General :: FontAwesome einbinden</label>
@@ -21,7 +21,7 @@
             </description>
         </element>
 
-        <element type="select">
+        <element type="select" scope="shop">
             <name>general_default_country</name>
             <label lang="de">General :: Standard Land (fallback)</label>
             <label lang="en">General :: Default country (fallback)</label>
@@ -97,7 +97,7 @@
 
         -->
 
-        <element type="boolean">
+        <element type="boolean" scope="shop">
             <name>facebook_enabled</name>
             <label lang="en">Facebook :: Enabled</label>
             <label lang="de">Facebook :: Aktiviert</label>
@@ -109,7 +109,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>facebook_keys_id</name>
             <label lang="en">Facebook :: App-ID</label>
             <label lang="de">Facebook :: App-ID</label>
@@ -121,7 +121,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>facebook_keys_secret</name>
             <label lang="en">Facebook :: App-Secret</label>
             <label lang="de">Facebook :: App-Geheimcode</label>
@@ -133,7 +133,7 @@
             </description>
         </element>
 
-        <element type="textarea">
+        <element type="textarea" scope="shop">
             <name>facebook_scope</name>
             <label lang="en">Facebook :: Scope</label>
             <label lang="de">Facebook :: Scope</label>
@@ -155,7 +155,7 @@
 
         -->
 
-        <element type="boolean">
+        <element type="boolean" scope="shop">
             <name>google_enabled</name>
             <label lang="en">Google :: Enabled</label>
             <label lang="de">Google :: Aktiviert</label>
@@ -167,7 +167,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>google_keys_id</name>
             <label lang="en">Google :: Client-ID</label>
             <label lang="de">Google :: Client-ID</label>
@@ -179,7 +179,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>google_keys_secret</name>
             <label lang="en">Google :: Clientkey</label>
             <label lang="de">Google :: Clientschlüssel</label>
@@ -191,7 +191,7 @@
             </description>
         </element>
 
-        <element type="textarea">
+        <element type="textarea" scope="shop">
             <name>google_scope</name>
             <label lang="en">Google :: Scope</label>
             <label lang="de">Google :: Scope</label>
@@ -209,7 +209,7 @@
 
         -->
 
-        <element type="boolean">
+        <element type="boolean" scope="shop">
             <name>amazon_enabled</name>
             <label lang="en">Amazon :: Enabled</label>
             <label lang="de">Amazon :: Aktiviert</label>
@@ -221,7 +221,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>amazon_keys_id</name>
             <label lang="en">Amazon :: Client-ID</label>
             <label lang="de">Amazon :: Client-ID</label>
@@ -233,7 +233,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>amazon_keys_secret</name>
             <label lang="en">Amazon :: Client Secret</label>
             <label lang="de">Amazon :: Client Secret</label>
@@ -251,7 +251,7 @@
 
           -->
 
-        <element type="boolean">
+        <element type="boolean" scope="shop">
             <name>linkedin_enabled</name>
             <label lang="en">LinkedIn :: Enabled</label>
             <label lang="de">LinkedIn :: Aktiviert</label>
@@ -263,7 +263,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>linkedin_keys_key</name>
             <label lang="en">LinkedIn :: Kunden-ID</label>
             <label lang="de">LinkedIn :: Key</label>
@@ -275,7 +275,7 @@
             </description>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>linkedin_keys_secret</name>
             <label lang="en">LinkedIn :: Kundengeheimnis</label>
             <label lang="de">LinkedIn :: Secret</label>
@@ -287,7 +287,7 @@
             </description>
         </element>
 
-        <element type="textarea">
+        <element type="textarea" scope="shop">
             <name>linkedin_fields</name>
             <label lang="en">LinkedIn :: Fields</label>
             <label lang="de">LinkedIn :: Felder</label>
@@ -299,7 +299,7 @@
             </description>
         </element>
 
-        <!--<element type="boolean">-->
+        <!--<element type="boolean" scope="shop">-->
             <!--<name>live_enabled</name>-->
             <!--<label lang="en">Windows Live :: Enabled</label>-->
             <!--<label lang="de">Windows Live :: Aktiviert</label>-->
@@ -311,7 +311,7 @@
             <!--</description>-->
         <!--</element>-->
 
-        <!--<element type="text">-->
+        <!--<element type="text" scope="shop">-->
             <!--<name>live_keys_id</name>-->
             <!--<label lang="en">Windows Live :: Application Id</label>-->
             <!--<label lang="de">Windows Live :: Application Id</label>-->
@@ -323,7 +323,7 @@
             <!--</description>-->
         <!--</element>-->
 
-        <!--<element type="text">-->
+        <!--<element type="text" scope="shop">-->
             <!--<name>live_keys_secret</name>-->
             <!--<label lang="en">Windows Live :: Application Secrets</label>-->
             <!--<label lang="de">Windows Live :: Application Secret</label>-->
@@ -334,8 +334,6 @@
                 <!--https://apps.dev.microsoft.com/-->
             <!--</description>-->
         <!--</element>-->
-
-
 
     </elements>
 </config>
