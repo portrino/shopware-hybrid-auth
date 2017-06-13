@@ -19,11 +19,7 @@
     },
     "require": {
         "php": ">=5.2.0",
-        "ext-curl": "*",
-        "facebook/graph-sdk": "^5.4"
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "2.*"
+        "ext-curl": "*"
     },
     "autoload": {
         "psr-0": {

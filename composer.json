@@ -19,8 +19,14 @@
     ],
     "require": {
         "composer/installers": "~1.0",
-        "hybridauth/hybridauth": "~2.9"
+        "hybridauth/hybridauth": "dev-port1-hybrid-auth"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/portrino/hybridauth.git"
+        }
+    ],
     "extra": {
         "installer-name": "Port1HybridAuth"
     },
