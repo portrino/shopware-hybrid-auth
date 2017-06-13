@@ -42,7 +42,7 @@
         Hybrid Auth
 
         -->
-        <element type="select">
+        <element type="select" scope="shop">
             <name>debug_mode</name>
             <label lang="en">Hybrid Auth :: Debug Mode</label>
             <label lang="de">Hybrid Auth :: Debug Modus</label>
@@ -79,7 +79,7 @@
             </store>
         </element>
 
-        <element type="text">
+        <element type="text" scope="shop">
             <name>debug_file</name>
             <label lang="en">Hybrid Auth :: Debug File</label>
             <label lang="de">Hybrid Auth :: Debug Datei</label>
