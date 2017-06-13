@@ -17,6 +17,26 @@
     <author>portrino GmbH</author>
     <compatibility minVersion="5.2.0" />
 
+    <changelog version="1.1.2">
+        <changes lang="de">
+            Service/ConfigurationService aktualisiert -> spaltet die Methode getProviderConfiguration() in
+            getProviderConfiguration() und getProviderConfigurationFromConfigFile()
+        </changes>
+        <changes lang="en">
+            Updates Service/ConfigurationService -> splits method getProviderConfiguration() into
+            getProviderConfiguration() and getProviderConfigurationFromConfigFile()
+        </changes>
+    </changelog>
+
+    <changelog version="1.1.1">
+        <changes lang="de">
+            Aktualisierung der composer.json
+        </changes>
+        <changes lang="en">
+            Updates composer.json
+        </changes>
+    </changelog>
+
     <changelog version="1.1.0">
         <changes lang="de">
             Hinweis für Nutzer welche über soziales Netzwerk registriert wurden im Profilbereich.
