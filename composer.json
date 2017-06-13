@@ -27,19 +27,18 @@
             "url": "https://github.com/portrino/hybridauth.git"
         }
     ],
-    "minimum-stability": "dev",
     "extra": {
         "installer-name": "Port1HybridAuth"
     },
     "scripts": {
         "post-autoload-dump": [
-            "@enable-additional-providers-amazon",
+            "@enable-additional-provider-amazon",
             "@remove-all-other-additional-providers",
             "@remove-open-id-thirdparty",
             "@remove-unused-providers",
             "@remove-live-endpoint"
         ],
-        "enable-additional-providers-amazon": [
+        "enable-additional-provider-amazon": [
             "[ -d vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/Providers ] && cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/Providers vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R && echo 'Copy Amazon Providers' || echo 'Skipped...'",
             "[ -d vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/thirdparty ] && cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/thirdparty vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R && echo 'Copy Amazon Provider thirdparty' || echo 'Skipped...'"
         ],

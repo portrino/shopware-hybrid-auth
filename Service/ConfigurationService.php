@@ -109,69 +109,90 @@ class ConfigurationService implements ConfigurationServiceInterface
      * @param string $provider
      *
      * @return array|bool
-     * @throws \Exception
      */
     public function getProviderConfiguration($provider)
     {
         $result = false;
 
         if ($this->isProviderEnabled($provider)) {
+            $result = $this->getProviderConfigurationFromConfigFile($provider);
+        }
 
-            $configFile = __DIR__ . '/../Configuration/config.php';
+        return $result;
+    }
 
-            if (!file_exists($configFile)) {
-                throw new \Exception('Hybriauth config does not exist on the given path.', 1);
-            }
 
-            $configTemplate = include $configFile;
+    /**
+     * Returns the config for the given provider (e.g.: Facebook, LinkedIn, OpenID, Google)
+     *
+     * @param string $provider
+     * @param string $configFile
+     * @param string $namespace
+     *
+     * @return array|bool
+     * @throws \Exception
+     */
+    public function getProviderConfigurationFromConfigFile($provider, $configFile = null, $namespace = 'Port1HybridAuth') {
+        $configFile = (!is_null($configFile) ? $configFile : __DIR__ . '/../Configuration/config.php');
 
-            if (is_array($configTemplate)) {
+        if (!file_exists($configFile)) {
+            throw new \Exception('Hybridauth config does not exist on the given path.', 1);
+        }
 
-                $baseUrl = $this->context->getShopContext()->getBaseUrl();
-                $virtualUrl = $this->context->getShopContext()->getShop()->getUrl();
+        $configTemplate = include $configFile;
+        $result = false;
 
-                $url = rtrim($baseUrl, '/') . rtrim($virtualUrl, '/') . '/hybridauth';
+        if (is_array($configTemplate)) {
+            $baseUrl = $this->context->getShopContext()->getBaseUrl();
+            $virtualUrl = $this->context->getShopContext()->getShop()->getUrl();
 
-                $result = [
-                    'base_url' => $url,
-                    'debug_mode' => (Boolean)$this->config->getByNamespace('Port1HybridAuth', 'debug_mode'),
-                    'debug_file' => $this->config->getByNamespace('Port1HybridAuth', 'debug_file'),
-                ];
+            $url = rtrim($baseUrl, '/') . rtrim($virtualUrl, '/') . '/hybridauth';
 
-                if (isset($configTemplate['providers'][$provider])) {
-                    $result['providers'][$provider] = ['enabled' => true];
+            $result = [
+                'base_url' => $url,
+                'debug_mode' => (Boolean)$this->config->getByNamespace('Port1HybridAuth', 'debug_mode'),
+                'debug_file' => $this->config->getByNamespace('Port1HybridAuth', 'debug_file'),
+            ];
 
-                    $providerConfiguration = $this->flatten($configTemplate['providers'][$provider]);
+            if (isset($configTemplate['providers'][$provider])) {
+                $result['providers'][$provider] = ['enabled' => true];
 
-                    foreach ($providerConfiguration as $configurationKey => $configuration) {
+                $providerConfiguration = $this->flatten($configTemplate['providers'][$provider]);
 
-                        if (is_array($configuration)) {
-                            $configValue = $this->config->getByNamespace('Port1HybridAuth',
-                                strtolower($provider) . '_' . $configurationKey);
-                            if (empty($configValue) === false) {
-                                $configValue = explode(',',$configValue);
-                            } else {
-                                $configValue = [];
-                            }
+                foreach ($providerConfiguration as $configurationKey => $configuration) {
+
+                    if (is_array($configuration)) {
+                        $configValue = $this->config->getByNamespace(
+                            $namespace,
+                            strtolower($provider) . '_' . $configurationKey
+                        );
+                        if (empty($configValue) === false) {
+                            $configValue = explode(',', $configValue);
+                        } else {
+                            $configValue = [];
                         }
-
-                        if (is_bool($configuration)) {
-                            $configValue = (Boolean)$this->config->getByNamespace('Port1HybridAuth',
-                                strtolower($provider) . '_' . $configurationKey);
-                        }
-
-                        if (is_string($configuration)) {
-                            $configValue = $this->config->getByNamespace('Port1HybridAuth',
-                                strtolower($provider) . '_' . $configurationKey);
-                        }
-
-                        // set the default config value if no override takes place
-                        if (empty($configValue)) {
-                            $configValue = $configuration;
-                        }
-
-                        $this->setNestedArrayValue($result['providers'][$provider], $configurationKey, $configValue);
                     }
+
+                    if (is_bool($configuration)) {
+                        $configValue = (Boolean)$this->config->getByNamespace(
+                            $namespace,
+                            strtolower($provider) . '_' . $configurationKey
+                        );
+                    }
+
+                    if (is_string($configuration)) {
+                        $configValue = $this->config->getByNamespace(
+                            $namespace,
+                            strtolower($provider) . '_' . $configurationKey
+                        );
+                    }
+
+                    // set the default config value if no override takes place
+                    if (empty($configValue)) {
+                        $configValue = $configuration;
+                    }
+
+                    $this->setNestedArrayValue($result['providers'][$provider], $configurationKey, $configValue);
                 }
             }
         }
