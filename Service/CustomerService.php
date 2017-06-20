@@ -8,6 +8,8 @@ namespace Port1HybridAuth\Service;
  * Written by André Wuttig <wuttig@portrino.de>, portrino GmbH
  */
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Query\Parameter;
 use Shopware\Models\Customer\Customer;
 
 /**
@@ -45,9 +47,19 @@ class CustomerService implements CustomerServiceInterface
         $builder = Shopware()->Models()->createQueryBuilder();
         $builder->select(['customers', 'attribute',])
             ->from('Shopware\Models\Customer\Customer', 'customers')
-            ->leftJoin('customers.attribute', 'attribute')
-            ->where('attribute.'. strtolower($type) . 'Identity = ?1')
-            ->setParameter(1, $identity);
+            ->leftJoin('customers.attribute', 'attribute');
+
+        if (Shopware()->Shop()->getCustomerScope() === true) {
+            $builder->where('customers.shopId = ?1 AND attribute.'. strtolower($type) . 'Identity = ?2')
+                ->setParameters(new ArrayCollection([
+                    new Parameter(1, Shopware()->Shop()->getId()),
+                    new Parameter(2, $identity)
+                ]));
+
+        } else {
+            $builder->where('attribute.'. strtolower($type) . 'Identity = ?1')
+                ->setParameter(1, $identity);
+        }
 
         $customer = $builder->getQuery()->getOneOrNullResult(1);
 

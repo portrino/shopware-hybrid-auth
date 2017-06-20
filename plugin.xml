@@ -3,7 +3,7 @@
     <label lang="de">Portrino HybridAuth - Social Login</label>
     <label lang="en">Portrino HybridAuth - Social Login</label>
 
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <copyright>(c) by portrino GmbH</copyright>
     <license>proprietary</license>
     <description lang="de">
@@ -17,15 +17,32 @@
     <author>portrino GmbH</author>
     <compatibility minVersion="5.2.0" />
 
+    <changelog version="1.1.3">
+        <changes lang="de">
+            Service/CustomerService->getCustomerByIdentity() aktualisiert -> Wenn der Kunden-Scope in den Shop-Einstellungen
+            aktiviert ist, wird beim Abrufen der Kundendaten die aktuelle Shop-ID zur Einschränkung des Ergebnis verwendet.
+
+            Labels für die Social-Identity Felder in den Kundendetails im Backend hinzugefügt.
+        </changes>
+        <changes lang="en">
+            Updates Service/CustomerService->getCustomerByIdentity() -> If the customer scope in the shop settings is
+            activated, the current shop ID is used to filter customer data result.
+
+            Added labels for the social identity fields in the customer details view in the backend.
+        </changes>
+    </changelog>
+
     <changelog version="1.1.2">
         <changes lang="de">
             Service/ConfigurationService aktualisiert -> spaltet die Methode getProviderConfiguration() in
             getProviderConfiguration() und getProviderConfigurationFromConfigFile().
+
             scope="shop" zu den Plugin-Konfigurationsfeldern hinzugefügt um Sub-Shops zu unterstützen.
         </changes>
         <changes lang="en">
             Updates Service/ConfigurationService -> splits method getProviderConfiguration() into
             getProviderConfiguration() and getProviderConfigurationFromConfigFile().
+
             Added scope="shop" to the plugin configuration fields to support sub-shops.
         </changes>
     </changelog>

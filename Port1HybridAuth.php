@@ -75,6 +75,8 @@ class Port1HybridAuth extends Plugin
 
         foreach (self::PROVIDERS as $provider) {
             $service->update('s_user_attributes', strtolower($provider) . '_identity', 'string', [
+                'label' => 'Identity ' . $provider,
+
                 //user has the opportunity to translate the attribute field for each shop
                 'translatable' => false,
 
