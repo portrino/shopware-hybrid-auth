@@ -77,7 +77,12 @@ class CustomerService implements CustomerServiceInterface
     public function getCustomerByEmail($email)
     {
         /** @var Customer $customer */
-        $customer = $this->getRepository()->findOneBy(['email' => $email]);
+        if (Shopware()->Shop()->getCustomerScope() === true) {
+            $criteria = ['email' => $email, 'shopId' => Shopware()->Shop()->getId()];
+        } else {
+            $criteria = ['email' => $email];
+        }
+        $customer = $this->getRepository()->findOneBy($criteria);
         if ($customer) {
             return $customer;
         }
