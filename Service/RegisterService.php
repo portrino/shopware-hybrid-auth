@@ -9,6 +9,7 @@ namespace Port1HybridAuth\Service;
  */
 
 use Doctrine\DBAL\Connection;
+use Exception;
 use Port1HybridAuth\Model\User;
 use Shopware\Bundle\AccountBundle\Service\AddressServiceInterface;
 use Shopware\Bundle\AccountBundle\Service\Validator\CustomerValidatorInterface;
@@ -76,8 +77,15 @@ class RegisterService extends \Shopware\Bundle\AccountBundle\Service\RegisterSer
         $this->modelManager = $modelManager;
         $this->validator = $validator;
         $this->countryService = $countryService;
-        parent::__construct($modelManager, $validator, $config, $passwordManager, $numberIncrementer, $connection,
-            $addressService);
+        parent::__construct(
+            $modelManager,
+            $validator,
+            $config,
+            $passwordManager,
+            $numberIncrementer,
+            $connection,
+            $addressService
+        );
     }
 
     /**
@@ -119,7 +127,7 @@ class RegisterService extends \Shopware\Bundle\AccountBundle\Service\RegisterSer
 
         // try to find the matching country by the current locale of the shop
         if ($country === null) {
-            $defaultCountry = Shopware()->Config()->getByNamespace('Port1HybridAuth', 'default_country');
+            $defaultCountry = Shopware()->Config()->getByNamespace('Port1HybridAuth', 'general_default_country');
             if ($defaultCountry) {
                 $country = $this->countryService->getCountryById($defaultCountry);
             }
@@ -133,10 +141,8 @@ class RegisterService extends \Shopware\Bundle\AccountBundle\Service\RegisterSer
         $billing->setCountry($country);
 
         try {
-
             $this->register($shop, $customer, $billing);
-
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return null;
         }
 
@@ -155,8 +161,10 @@ class RegisterService extends \Shopware\Bundle\AccountBundle\Service\RegisterSer
     {
         $result = false;
         if ($user->getEmail() === $customer->getEmail()) {
-            call_user_func_array([$customer->getAttribute(), 'set' . ucfirst($user->getType()) . 'Identity'],
-                [$user->getId()]);
+            call_user_func_array(
+                [$customer->getAttribute(), 'set' . ucfirst($user->getType()) . 'Identity'],
+                [$user->getId()]
+            );
             $result = $this->udapteCustomerAttributes($customer);
         }
 
@@ -178,10 +186,8 @@ class RegisterService extends \Shopware\Bundle\AccountBundle\Service\RegisterSer
             $this->modelManager->refresh($customer->getAttribute());
 
             return $customer;
-
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
     }
-
 }

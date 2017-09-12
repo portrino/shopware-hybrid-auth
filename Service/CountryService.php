@@ -126,9 +126,6 @@ class CountryService implements CountryServiceInterface
                 $result = $this->getCountryByCountryName($user->getCountryName());
             }
         }
-
-
+        return $result;
     }
-
-
 }

@@ -45,7 +45,9 @@ class AuthenticationServiceFactory implements AuthenticationServiceFactoryInterf
         $result = null;
 
         if (Shopware()->Container()->has('port1_hybrid_auth.' . strtolower($provider) . '_authentication_service')) {
-            $result = Shopware()->Container()->get('port1_hybrid_auth.' . strtolower($provider) . '_authentication_service');
+            $result = Shopware()
+                ->Container()
+                ->get('port1_hybrid_auth.' . strtolower($provider) . '_authentication_service');
         }
 
         return $result;

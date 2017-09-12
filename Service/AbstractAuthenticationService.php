@@ -45,8 +45,9 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
      */
     public function __construct(
         $provider,
-        ConfigurationServiceInterface $configurationService)
-    {
+        ConfigurationServiceInterface $configurationService
+    ) {
+    
         $this->provider = $provider;
         $this->configurationService = $configurationService;
 
@@ -106,11 +107,9 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
         $user = null;
 
         if ($this->isAuthenticated()) {
-
             $userProfil = $this->getUserProfile();
 
             if ($userProfil != null) {
-
                 $identifier = empty($userProfil->identifier) === false ? $userProfil->identifier : false;
                 $email = empty($userProfil->emailVerified) === false ? $userProfil->emailVerified : $userProfil->email;
 
@@ -118,7 +117,6 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
                     $user = new User(strtolower($this->provider), $identifier, $email);
 
                     if (empty($userProfil->gender) === false) {
-
                         if ($userProfil->gender === 'male') {
                             $user->setSalutation('mr');
                         }
@@ -156,7 +154,6 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
                         $user->setLocale($userProfil->country);
                     }
                 }
-
             }
         }
 
@@ -171,5 +168,4 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
     {
         return ($this->adapter != null && $this->adapter->isUserConnected());
     }
-
 }

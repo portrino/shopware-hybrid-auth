@@ -52,7 +52,8 @@ class AccountService implements AccountServiceInterface
      *
      * @return bool|array
      */
-    public function loginUser($customer) {
+    public function loginUser($customer)
+    {
         $this->front->Request()->setPost('email', $customer->getEmail());
         $this->front->Request()->setPost('passwordMD5', $customer->getPassword());
         return $this->admin->sLogin(true);

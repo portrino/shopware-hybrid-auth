@@ -48,11 +48,8 @@ class Shopware_Controllers_Frontend_SocialUser extends \Enlight_Controller_Actio
             $this->forward('index', 'register', 'frontend', [
                 'sTarget' => $this->Request()->getParam('sTarget')
             ]);
-
         } else {
             // @todo: redirect to referere or error?
         }
-
     }
-
 }

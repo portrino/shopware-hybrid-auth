@@ -303,5 +303,4 @@ class User
     {
         $this->locale = $locale;
     }
-
 }

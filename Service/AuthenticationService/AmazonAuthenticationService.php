@@ -27,7 +27,6 @@ class AmazonAuthenticationService extends AbstractAuthenticationService
         $user = parent::getUser();
 
         if ($user != null) {
-
             $userProfil = $this->getUserProfile();
 
 

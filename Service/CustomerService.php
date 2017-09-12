@@ -55,7 +55,6 @@ class CustomerService implements CustomerServiceInterface
                     new Parameter(1, Shopware()->Shop()->getId()),
                     new Parameter(2, $identity)
                 ]));
-
         } else {
             $builder->where('attribute.'. strtolower($type) . 'Identity = ?1')
                 ->setParameter(1, $identity);
@@ -88,5 +87,4 @@ class CustomerService implements CustomerServiceInterface
         }
         return null;
     }
-
 }
