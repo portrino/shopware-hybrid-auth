@@ -107,6 +107,7 @@ class RegisterService extends \Shopware\Bundle\AccountBundle\Service\RegisterSer
         $customer->setPassword($password);
 
         $billing = new Address();
+        $billing->setCompany($user->getCompany());
         $billing->setSalutation($user->getSalutation());
         $billing->setFirstname($user->getFirstName());
         $billing->setLastname($user->getLastName());

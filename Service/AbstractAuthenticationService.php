@@ -155,6 +155,10 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
                     if (empty($userProfil->language) === false) {
                         $user->setLocale($userProfil->country);
                     }
+
+                    if (empty($userProfil->organization_name) === false) {
+                        $user->setCompany($userProfil->organization_name);
+                    }
                 }
 
             }

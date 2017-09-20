@@ -102,8 +102,8 @@ class Port1HybridAuth extends Plugin
     {
         return [
             'Enlight_Controller_Front_StartDispatch' => 'onFrontStartDispatch',
-            'Enlight_Controller_Action_PostDispatch_Frontend_Register' => 'onFrontendPostDispatchRegister',
-            'Enlight_Controller_Action_PostDispatch_Frontend_Account' => 'onFrontendPostDispatchAccount',
+            'Enlight_Controller_Action_PreDispatch_Frontend_Register' => 'onFrontendPostDispatchRegister',
+            'Enlight_Controller_Action_PreDispatch_Frontend_Account' => 'onFrontendPostDispatchAccount',
             'Theme_Compiler_Collect_Plugin_Less' => 'onCollectLessFiles'
         ];
     }

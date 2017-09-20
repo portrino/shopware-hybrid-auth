@@ -83,6 +83,11 @@ class User
     private $locale = '';
 
     /**
+     * @var string
+     */
+    private $company = '';
+
+    /**
      * User constructor.
      *
      * @param string $id
@@ -304,4 +309,19 @@ class User
         $this->locale = $locale;
     }
 
+    /**
+     * @return string
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param string $company
+     */
+    public function setCompany($company)
+    {
+        $this->company = $company;
+    }
 }
