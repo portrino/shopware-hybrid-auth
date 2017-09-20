@@ -20,5 +20,4 @@ class Shopware_Controllers_Frontend_HybridAuth extends \Enlight_Controller_Actio
     {
         \Hybrid_Endpoint::process();
     }
-
 }

@@ -36,8 +36,9 @@ class LogoutService implements LogoutServiceInterface
      * @param ConfigurationServiceInterface $configurationService
      */
     public function __construct(
-        ConfigurationServiceInterface $configurationService)
-    {
+        ConfigurationServiceInterface $configurationService
+    ) {
+    
         $this->configurationService = $configurationService;
     }
 

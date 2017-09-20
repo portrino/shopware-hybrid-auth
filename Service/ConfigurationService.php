@@ -1,4 +1,5 @@
 <?php
+
 namespace Port1HybridAuth\Service;
 
 /**
@@ -62,7 +63,6 @@ class ConfigurationService implements ConfigurationServiceInterface
 
         foreach (Port1HybridAuth::PROVIDERS as $provider) {
             if ((Boolean)$this->config->getByNamespace('Port1HybridAuth', strtolower($provider) . '_enabled')) {
-
                 $label = $this->snippetManager->getNamespace('frontend/account/login')->get('SignInWith' . $provider);
 
                 $result[$provider] = $label;
@@ -97,7 +97,7 @@ class ConfigurationService implements ConfigurationServiceInterface
             $config = $this->getProviderConfiguration($PROVIDER);
 
             if ($config != false) {
-                $result = array_replace_recursive($result,  $this->getProviderConfiguration($PROVIDER));
+                $result = array_replace_recursive($result, $this->getProviderConfiguration($PROVIDER));
             }
         }
         return $result;
@@ -132,7 +132,11 @@ class ConfigurationService implements ConfigurationServiceInterface
      * @return array|bool
      * @throws \Exception
      */
-    public function getProviderConfigurationFromConfigFile($provider, $configFile = null, $namespace = 'Port1HybridAuth') {
+    public function getProviderConfigurationFromConfigFile(
+        $provider,
+        $configFile = null,
+        $namespace = 'Port1HybridAuth'
+    ) {
         $configFile = (!is_null($configFile) ? $configFile : __DIR__ . '/../Configuration/config.php');
 
         if (!file_exists($configFile)) {
@@ -160,7 +164,6 @@ class ConfigurationService implements ConfigurationServiceInterface
                 $providerConfiguration = $this->flatten($configTemplate['providers'][$provider]);
 
                 foreach ($providerConfiguration as $configurationKey => $configuration) {
-
                     if (is_array($configuration)) {
                         $configValue = $this->config->getByNamespace(
                             $namespace,
@@ -211,9 +214,8 @@ class ConfigurationService implements ConfigurationServiceInterface
         $result = [];
 
         foreach ($array as $key => $value) {
-
             // hacky solution to prevent underscore intepretation
-            if (strpos($key, '_') > 0){
+            if (strpos($key, '_') > 0) {
                 $key = str_replace('_', '###', $key);
             }
 
@@ -246,7 +248,7 @@ class ConfigurationService implements ConfigurationServiceInterface
         $current = &$array;
         foreach ($pathParts as $key) {
             // hacky solution to prevent underscore intepretation
-            if (strpos($key, '###') > 0){
+            if (strpos($key, '###') > 0) {
                 $key = str_replace('###', '_', $key);
             }
 
@@ -258,5 +260,4 @@ class ConfigurationService implements ConfigurationServiceInterface
 
         return $backup;
     }
-
 }

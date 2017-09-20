@@ -93,7 +93,6 @@ class SingleSignOnService implements SingleSignOnServiceInterface
         if ($isUserLoggedIn) {
             return $isUserLoggedIn;
         } else {
-
             if ($this->authenticationService != null) {
 
                 /**

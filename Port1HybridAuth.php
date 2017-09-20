@@ -196,19 +196,16 @@ class Port1HybridAuth extends Plugin
     {
         $lessDir = $this->getPath() . '/Resources/views/frontend/_public/src/less/';
         $lessDefinition = new LessDefinition(
-        // less configuration variables
+            // less configuration variables
             [],
-
             // less files which should be compiled
             [
                 $lessDir . 'hybrid_auth.less'
             ],
-
             //import directory for less @import commands
             $lessDir
         );
 
         return new ArrayCollection([$lessDefinition]);
     }
-
 }

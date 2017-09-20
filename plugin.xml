@@ -17,6 +17,19 @@
     <author>portrino GmbH</author>
     <compatibility minVersion="5.2.0" />
 
+    <changelog version="1.1.5">
+        <changes lang="de">
+            Behebt einen Fehler bei welchen das Standard Land (fallback) nicht gesetzt wurde.
+
+            Formatierung aller PHP-Dateien via phpcbf für PSR2 Standard.
+        </changes>
+        <changes lang="en">
+            Fixes a bug where the Default country (fallback) was not set correctly to the configured value.
+
+            Fix as many sniff violations as possible via pbpcbf for PSR2 standard.
+        </changes>
+    </changelog>
+
     <changelog version="1.1.4">
         <changes lang="de">
             Service/CustomerService->getCustomerByEmail() aktualisiert -> Wenn der Kunden-Scope in den Shop-Einstellungen
