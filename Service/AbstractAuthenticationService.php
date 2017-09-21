@@ -10,6 +10,7 @@ namespace Port1HybridAuth\Service;
  */
 
 use Port1HybridAuth\Model\User;
+use Shopware\Components\Plugin\ConfigReader;
 
 /**
  * Class AbstractAuthenticationService
@@ -17,6 +18,12 @@ use Port1HybridAuth\Model\User;
  */
 abstract class AbstractAuthenticationService implements AuthenticationServiceInterface
 {
+
+    /**
+     * @var ConfigReader
+     */
+    protected $cachedConfigReader;
+
     /**
      * @var ConfigurationServiceInterface
      */
@@ -38,22 +45,36 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
     protected $adapter;
 
     /**
+     * @var string
+     */
+    protected $pluginName = 'Port1HybridAuth';
+
+    /**
      * AbstractAuthenticationService constructor.
      *
      * @param string $provider
      * @param ConfigurationServiceInterface $configurationService
+     * @param ConfigReader $cachedConfigReader
      */
     public function __construct(
         $provider,
-        ConfigurationServiceInterface $configurationService
+        ConfigurationServiceInterface $configurationService,
+        ConfigReader $cachedConfigReader
     ) {
-    
         $this->provider = $provider;
         $this->configurationService = $configurationService;
+        $this->cachedConfigReader = $cachedConfigReader;
 
-        $config = $this->configurationService->getProviderConfiguration($this->provider);
+        $providerConfiguration = $this->configurationService->getProviderConfiguration($this->provider);
 
-        $this->hybridAuth = new \Hybrid_Auth($config);
+        foreach ($providerConfiguration['providers'] as &$provider) {
+            $provider['shopwarePluginConfig'] = $cachedConfigReader->getByPluginName(
+                $this->pluginName,
+                Shopware()->Shop()
+            );
+        }
+
+        $this->hybridAuth = new \Hybrid_Auth($providerConfiguration);
     }
 
     /**
@@ -117,11 +138,16 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
                     $user = new User(strtolower($this->provider), $identifier, $email);
 
                     if (empty($userProfil->gender) === false) {
-                        if ($userProfil->gender === 'male') {
+                        if ($userProfil->gender === 'male'
+                            || $userProfil->gender === 'mr'
+                        ) {
                             $user->setSalutation('mr');
                         }
 
-                        if ($userProfil->gender === 'female') {
+                        if ($userProfil->gender === 'female'
+                            || $userProfil->gender === 'mrs'
+                            || $userProfil->gender === 'ms'
+                        ) {
                             $user->setSalutation('ms');
                         }
                     }
