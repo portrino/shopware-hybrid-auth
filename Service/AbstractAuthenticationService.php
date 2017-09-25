@@ -173,7 +173,13 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
                     }
 
                     if (empty($userProfil->country) === false) {
-                        $user->setCountryName($userProfil->country);
+                        if (is_numeric($userProfil->country) === false
+                            && strlen($userProfil->country) === 2
+                        ) {
+                            $user->setCountryIso($userProfil->country);
+                        } else {
+                            $user->setCountryName($userProfil->country);
+                        }
                     }
 
                     if (empty($userProfil->language) === false) {
