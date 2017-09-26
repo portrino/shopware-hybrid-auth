@@ -19,72 +19,73 @@
 </h1>
 
 <p>
-    Mit dem Plugin <strong>Portrino HybridAuth - Social Login</strong> ermöglichen Sie Ihren Kunden
-    sich direkt über eines der bekannten sozialen Netzwerke Facebook, Google+, LinkedIn und Amazon
-    in Ihrem Shop zu registrieren.
+    Viele Web-Applikationen bieten bereits den Login über soziale Netzwerke an und Kunden nehmen diesen hilfreichen
+    Service sehr gern in Anspruch. Sie ersparen es sich dadurch, ihre Kontaktdaten immer wieder neu zu hinterlegen.
+
+    Mit HybridAuth, unserem Plugin für Shopware und TYPO3, können Ihre Kunden sich direkt und bequem über ihr
+    bevorzugtes soziales Netzwerk in Ihrem Shop registrieren und anmelden. Ob nun über Facebook, Xing, LinkedIn,
+    Amazon oder Google+.
+</p>
+
+<h2>
+    So funktioniert das Social Login mit HybridAuth
+</h2>
+
+<h3><a id="Prozess_fr_neue_Kunden_13"></a>Anmeldeprozess für Neukunden</h3>
+
+<p>
+    Neukunden, die sich mit dem Social Login bei Ihnen registrieren, werden sofort eingeloggt und in der Datenbank
+    abgelegt.
+    Bei unvollständigen Daten muss er diese spätestens beim Ausloggen ergänzen.
 </p>
 
 <p>
-    Das Plugin ist zudem für den Einsatz in Subshops optimiert.
+    Um Ihren Kunden die Anmeldung zu erleichtern, haben wir auf einen zusätzlichen Registrierungsschritt verzichtet, in
+    dem
+    die restlichen Stammdaten abgefragt werden.
+</p>
+
+<h3><a id="Prozess_bei_bestehenden_Kunden_23"></a>Anmeldeprozess bei Bestandskunden</h3>
+
+<p>
+    Bereits bei Ihnen registrierte Kunden bleiben eingeloggt, solange der Social Login Cookie aktiv ist. Ist dieser
+    nicht mehr verfügbar oder wurde die Session beendet, kann sich Ihr Kunde über den jeweiligen Social Login Button
+    ohne erneute Registrierung anmelden.
+    Der Kunde kann über die eindeutige ID identifiziert werden, welche vom Social Provider vergeben wird.
+</p>
+
+<h3>Abmeldeprozess</h3>
+
+<p>
+    Mit dem Klick auf den „Logout Button“ ist Ihr Kunde auch bei allen Social Providers ausgeloggt und die Session
+    beendet. Bei seinen sozialen Netzwerken bleibt er jedoch weiterhin angemeldet.
+</p>
+
+<h3>Mögliche spezielle Fragen</h3>
+
+<h4>Was ist, wenn ein Kunde bereits mit der gleichen E-Mail-Adresse im System registriert ist?</h4>
+
+<p>
+    Wenn sich ein Kunde erst über ein soziales Netzwerk registriert hat und dann später über ein anderes Netzwerk mit
+    der gleichen E-Mail-Adresse anmeldet, werden diese beiden Identitäten zu einer verknüpft. Doch die meisten Nutzer
+    melden sich in der Regel über ein Social Provider an, daher kommt es nur selten zu dieser Situation.
+</p>
+
+<h4>Wie kann ein Kunde sein Passwort wechseln?</h4>
+
+<p>
+    Um den Anmeldeprozess für Ihre Kunden schnell und einfach zu halten, haben wir auf einen Zwischenschritt in der
+    Registrierung verzichtet. Der Nutzer ist dadurch sofort eingeloggt und erhält während des Single Sign On ein
+    zufällig generiertes Passwort, um die Anforderungen von Shopware zu erfüllen.
 </p>
 
 <p>
-    Logins über soziale Netzwerke sind sehr hilfreich und werden bereits von vielen Web-Applikationen angeboten um
-    sich schnell und einfach via Single-Sign-On zu registrieren bzw. einzuloggen.
+    Möchte Ihr Kunde sein Passwort ändern, kann es auf dem Anmeldeformular zurückgesetzt werden. Dafür erhält er per
+    E-Mail einen Link, über den er das Passwort bearbeiten kann.
 </p>
 
 <p>
-    Geben Sie Ihren Kunden die Chance sich mit einem Klick zu <span style="font-style: italic;">connecten</span>!
-</p>
-
-<h3><a id="Prozess_fr_neue_Kunden_13"></a>Prozess für neue Kunden</h3>
-
-<p>Wenn ein neuer Kunde sich via Social Login in Ihrem Shop registriert, wird er als Kunde in der Datenbank<br>angelegt
-    und danach sofort eingeloggt.</p>
-<p>Sollten seine Stammdaten nicht vollständig sein, muss er diese spätestens im Checkout Prozess ausfüllen.</p>
-<p>Wir haben uns dagegen entschieden eine zusätzlichen Registrerungsschritt mit der Abfrage der restlichen
-    Stammdaten<br>nach dem Social Login einzubauen, da dies möglicherweise ein Hürde für den Kunden darstellt.</p>
-
-<h3><a id="Prozess_bei_bestehenden_Kunden_23"></a>Prozess bei bestehenden Kunden</h3>
-<p>Ist ein Nutzer bereits registrierter Kunde in Ihrem Shop wird dieser solange der Social Login Cookie aktiv ist<br>eingeloggt.
-    Ist der Cookie nicht mehr verfügbar oder die Session abgelaufen kann der Nutzer sich über<br>einen Klick auf den
-    jeweiligen Social Login Button anmelden. Eine erneute Registrierung ist nicht notwendig.</p>
-<p>Hinweis: Die Identifierung des Kunden erfolgt über seine eindeutige ID, welche vom Social Provider vergeben wird.</p>
-
-<h4><a id="Spezial_Fall_Kunde_mit_gleicher_EMail_Adresse_bereits_im_System_31"></a>
-    Spezial Fall: “Kunde mit gleicher E-Mail Adresse bereits im System”
-</h4>
-<p>Ist beispielsweise ein Kunde bereits via Google in Ihrem Shop registriert und möchte sich später via<br>Facebook
-    anmelden und hat bei beiden Social Providern die gleiche E-Mail Adresse, so werden beide<br>Identitäten verknüpft.
-    Im Shop bleibt er ein Nutzer. Dieser Fall tritt jedoch recht selten auf, da die meisten<br>Nutzer sich üblicherweise
-    über einen Social Provider anmelden.</p>
-
-<h4><a id="Spezial_Fall_Passwort_38"></a>Spezial Fall: Passwort</h4>
-<p>
-    Um den Single Sign On Prozess so schlank wie möglich zu halten haben wir auf einen Zwischenschritt zur Registrierung
-    verzichtet. Dadurch wird der Nutzer direkt im Shop eingeloggt. Jedoch hat er dadurch keine Möglichkeit ein Passwort
-    für seinen Account zu vergeben.
-</p>
-
-<p>
-    Es wird ein zufälliges Passwort generiert und während des Single Sign On für den Kunden vergeben, da Shopware dies
-    voraussetzt.
-</p>
-
-<p>
-    Die einzige Möglichkeit das Passwort zu ändern ist es dieses via Anmeldeformular zurückzusetzen. Der Kunde bekommt<br>
-    dann eine E-Mail und kann via Link das Passwort zurücksetzen.
-</p>
-
-<p>
-    Für Nutzer, die sich via Social Network registriert haben, wird nach dem Login unter <em>Persönliche Daten</em> ein
-    Hinweis eingeblendet. Dieser Hinweis enthält zudem den Link zum <em>Passwort zurücksetzen</em> Formular. (Der
-    Hinweistext kann von Ihnen als Shop-Betreiber frei konfiguriert werden. Weitere Informationen entnehmen Sie bitte
-    den Installationshinweisen.)
-</p>
-
-<h3><a id="Prozess_beim_Ausloggen_48"></a>Prozess beim Ausloggen</h3>
-<p>
-    Wenn ein angemeldeter Kunde den “Logout Button” klickt, loggen wir Ihn auch von allen Social Providers aus und<br>
-    invalidieren die Session. Bei Facebook, Google etc. selbst ist er natürlich noch angemeldet.
+    Hat sich Ihr Kunde über ein Social Networt (wie z.B. Facebook eingeloggt), wird ihm in dem Menüpunkt mit seinen
+    persönlichen Daten ein Hinweis eingeblendet, der den Link zum Formular enthält, in dem er sein Passwort zurücksetzen
+    kann. Der Hinweistext kann von Ihnen frei gestaltet werden.
 </p>
