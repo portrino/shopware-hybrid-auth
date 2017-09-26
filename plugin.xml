@@ -3,12 +3,12 @@
     <label lang="de">Portrino HybridAuth - Social Login</label>
     <label lang="en">Portrino HybridAuth - Social Login</label>
 
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 
     <copyright>(c) by portrino GmbH</copyright>
     <license>proprietary</license>
     <description lang="de">
-        Dieses Plugin bietet die Möglichkeit das sich Kunden über verschiedene Anbieter wie Facebook, Google, Amazon, usw. anzumelden.
+        Dieses Plugin bietet die Möglichkeit, dass sich Kunden über verschiedene Anbieter wie Facebook, Google, Amazon, usw. anzumelden.
     </description>
     <description lang="en">
         This plugin provides features to login via various social providers like: Facebook, Google, Amazon, etc. as customer.
@@ -17,6 +17,15 @@
     <link>http://www.portrino.de/</link>
     <author>portrino GmbH</author>
     <compatibility minVersion="5.2.0" />
+
+    <changelog version="1.2.1">
+        <changes lang="de">
+            [TASK] Dokumentation: Deutsche Beschreibung wurde aktualisiert
+        </changes>
+        <changes lang="en">
+            [TASK] Documentation: updates german description
+        </changes>
+    </changelog>
 
     <changelog version="1.2.0">
         <changes lang="de">
