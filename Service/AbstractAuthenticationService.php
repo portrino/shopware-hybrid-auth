@@ -20,11 +20,6 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
 {
 
     /**
-     * @var ConfigReader
-     */
-    protected $cachedConfigReader;
-
-    /**
      * @var ConfigurationServiceInterface
      */
     protected $configurationService;
@@ -54,25 +49,15 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
      *
      * @param string $provider
      * @param ConfigurationServiceInterface $configurationService
-     * @param ConfigReader $cachedConfigReader
      */
     public function __construct(
         $provider,
-        ConfigurationServiceInterface $configurationService,
-        ConfigReader $cachedConfigReader
+        ConfigurationServiceInterface $configurationService
     ) {
         $this->provider = $provider;
         $this->configurationService = $configurationService;
-        $this->cachedConfigReader = $cachedConfigReader;
 
         $providerConfiguration = $this->configurationService->getProviderConfiguration($this->provider);
-
-        foreach ($providerConfiguration['providers'] as &$provider) {
-            $provider['shopwarePluginConfig'] = $cachedConfigReader->getByPluginName(
-                $this->pluginName,
-                Shopware()->Shop()
-            );
-        }
 
         $this->hybridAuth = new \Hybrid_Auth($providerConfiguration);
     }

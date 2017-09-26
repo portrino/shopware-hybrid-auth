@@ -23,18 +23,12 @@
             [FEATURE] Der Firmenname des Benutzers (vom Social-Provider) kann nun  mit in den Adressdatensatz
             übernommen werden.
 
-            [FEATURE] Die Shopware Plugin-Konfigurationsdaten werden nun mit in Hybrid Auth Provider-Konfiguration
-            eingefügt, so dass diese z.B. im Provider Model/Endpoint verwendet werden können.
-
             [BUGFIX] Es wird nun die Länge der Zeichenkette des Landes überprüft (2), damit das Land auch mittels ISO 2
             Ländercode korrekt importiert wird.
         </changes>
         <changes lang="en">
             [FEATURE] Adds the possibility to import the company name (from the social provider) into the address
             record.
-
-            [FEATURE] Inject the shopware plugin configuration into the Hybrid Auth provider configuration, so that it
-            is possible to use it in the provider model/endpoint.
 
             [BUGFIX] The length of the country string is now checked (2), so that the country is also correctly imported
             using ISO 2 country code.

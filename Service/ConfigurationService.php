@@ -214,7 +214,7 @@ class ConfigurationService implements ConfigurationServiceInterface
         $result = [];
 
         foreach ($array as $key => $value) {
-            // hacky solution to prevent underscore intepretation
+            // hacky solution to prevent underscore interpretation
             if (strpos($key, '_') > 0) {
                 $key = str_replace('_', '###', $key);
             }
