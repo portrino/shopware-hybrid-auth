@@ -18,6 +18,16 @@
     <author>portrino GmbH</author>
     <compatibility minVersion="5.2.0" />
 
+    <changelog version="1.2.2">
+        <changes lang="de">
+            [TASK] Return type declaration in \Port1HybridAuth\Model\User entfernt da das automatic code review
+            damit fehlschlägt.
+        </changes>
+        <changes lang="en">
+            [TASK] Removes return type declaration in \Port1HybridAuth\Model\User as automatic code review failed because of it.
+        </changes>
+    </changelog>
+
     <changelog version="1.2.1">
         <changes lang="de">
             [TASK] Dokumentation: Deutsche Beschreibung wurde aktualisiert

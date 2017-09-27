@@ -312,7 +312,7 @@ class User
     /**
      * @return string
      */
-    public function getCompany(): string
+    public function getCompany()
     {
         return $this->company;
     }
@@ -320,7 +320,7 @@ class User
     /**
      * @param string $company
      */
-    public function setCompany(string $company)
+    public function setCompany($company)
     {
         $this->company = $company;
     }
