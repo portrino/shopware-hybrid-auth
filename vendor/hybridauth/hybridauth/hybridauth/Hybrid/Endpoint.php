@@ -19,10 +19,19 @@ class Hybrid_Endpoint {
 	/**
 	 * Process the current request
 	 *
-	 * @param array $request The current request parameters. Leave as null to default to use.
+	 * @param array $request The current request parameters. Leave as null to default to use $_REQUEST.
 	 */
 	public function __construct($request = null) {
 		if (is_null($request)) {
+//			// Fix a strange behavior when some provider call back ha endpoint
+//			// with /index.php?hauth.done={provider}?{args}...
+//			// >here we need to parse $_SERVER[QUERY_STRING]
+//			$request = $_REQUEST;
+//			if (isset($_SERVER["QUERY_STRING"]) && strrpos($_SERVER["QUERY_STRING"], '?')) {
+//				$_SERVER["QUERY_STRING"] = str_replace("?", "&", $_SERVER["QUERY_STRING"]);
+//				parse_str($_SERVER["QUERY_STRING"], $request);
+//			}
+
             $request = [];
             if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 if (filter_input(INPUT_GET, 'get')) {
@@ -80,7 +89,7 @@ class Hybrid_Endpoint {
 	/**
 	 * Process the current request
 	 *
-	 * @param array $request The current request parameters. Leave as null to default to use.
+	 * @param array $request The current request parameters. Leave as null to default to use $_REQUEST.
 	 * @return Hybrid_Endpoint
 	 */
 	public static function process($request = null) {

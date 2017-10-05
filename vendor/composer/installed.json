@@ -122,19 +122,19 @@
         "source": {
             "type": "git",
             "url": "https://github.com/portrino/hybridauth.git",
-            "reference": "b579b446e93511bf01fe240edf3c7d73c421b6f9"
+            "reference": "04783a2858921eaa86491a3f24307f00a8512ab4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/portrino/hybridauth/zipball/b579b446e93511bf01fe240edf3c7d73c421b6f9",
-            "reference": "b579b446e93511bf01fe240edf3c7d73c421b6f9",
+            "url": "https://api.github.com/repos/portrino/hybridauth/zipball/04783a2858921eaa86491a3f24307f00a8512ab4",
+            "reference": "04783a2858921eaa86491a3f24307f00a8512ab4",
             "shasum": ""
         },
         "require": {
             "ext-curl": "*",
             "php": ">=5.2.0"
         },
-        "time": "2017-02-02T16:04:34+00:00",
+        "time": "2017-10-05T08:31:11+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
