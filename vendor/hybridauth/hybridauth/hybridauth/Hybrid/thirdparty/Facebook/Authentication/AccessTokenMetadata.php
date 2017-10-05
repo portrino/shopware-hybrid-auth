@@ -325,7 +325,7 @@ class AccessTokenMetadata
      */
     public function validateAppId($appId)
     {
-        if ($this->getAppId() !== $appId) {
+        if ($this->getAppId() !== (string)$appId) {
             throw new FacebookSDKException('Access token metadata contains unexpected app ID.', 401);
         }
     }
