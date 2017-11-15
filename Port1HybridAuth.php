@@ -121,7 +121,7 @@ class Port1HybridAuth extends Plugin
      */
     public function registerHybridAuth()
     {
-        require_once $this->getPath() . '/vendor/autoload.php';
+//        require_once $this->getPath() . '/vendor/autoload.php';
     }
 
     /**

@@ -19,7 +19,7 @@
     ],
     "require": {
         "composer/installers": "~1.0",
-        "hybridauth/hybridauth": "~2.8.2"
+        "hybridauth/hybridauth": "~2.9.6"
     },
     "extra": {
         "installer-name": "Port1HybridAuth"
