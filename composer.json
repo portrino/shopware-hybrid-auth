@@ -19,45 +19,9 @@
     ],
     "require": {
         "composer/installers": "~1.0",
-        "hybridauth/hybridauth": "dev-port1-hybrid-auth"
+        "hybridauth/hybridauth": "~2.8.2"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/portrino/hybridauth.git"
-        }
-    ],
     "extra": {
         "installer-name": "Port1HybridAuth"
-    },
-    "scripts": {
-        "post-autoload-dump": [
-            "@enable-additional-provider-amazon",
-            "@remove-all-other-additional-providers",
-            "@remove-open-id-thirdparty",
-            "@remove-unused-providers",
-            "@remove-live-endpoint"
-        ],
-        "enable-additional-provider-amazon": [
-            "[ -d vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/Providers ] && cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/Providers vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R && echo 'Copy Amazon Providers' || echo 'Skipped...'",
-            "[ -d vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/thirdparty ] && cp vendor/hybridauth/hybridauth/additional-providers/hybridauth-amazon/thirdparty vendor/hybridauth/hybridauth/hybridauth/Hybrid/ -R && echo 'Copy Amazon Provider thirdparty' || echo 'Skipped...'"
-        ],
-        "remove-all-other-additional-providers": [
-            "[ -d vendor/hybridauth/hybridauth/additional-providers ] && rm -rf vendor/hybridauth/hybridauth/additional-providers && echo 'Remove all other additional providers' || echo 'Skipped...'"
-        ],
-        "remove-open-id-thirdparty": [
-            "[ -d vendor/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/OpenID ] && rm -rf vendor/hybridauth/hybridauth/hybridauth/Hybrid/thirdparty/OpenID && echo 'Remove OpenID' || echo 'Skipped...'"
-        ],
-        "remove-unused-providers": [
-            "[ -f vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/AOL.php ] && rm vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/AOL.php && echo 'Remove Twitter' || echo 'Skipped...'",
-            "[ -f vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Foursquare.php ] && rm vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Foursquare.php && echo 'Remove Foursquare' || echo 'Skipped...'",
-            "[ -f vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Live.php ] && rm vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Live.php && echo 'Remove Live' || echo 'Skipped...'",
-            "[ -f vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/OpenID.php ] && rm vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/OpenID.php && echo 'Remove OpenID' || echo 'Skipped...'",
-            "[ -f vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Twitter.php ] && rm vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Twitter.php && echo 'Remove Twitter' || echo 'Skipped...'",
-            "[ -f vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Yahoo.php ] && rm vendor/hybridauth/hybridauth/hybridauth/Hybrid/Providers/Yahoo.php && echo 'Remove Yahoo' || echo 'Skipped...'"
-        ],
-        "remove-live-endpoint": [
-            "[ -f vendor/hybridauth/hybridauth/hybridauth/live.php ] && rm vendor/hybridauth/hybridauth/hybridauth/live.php && echo 'Remove live endpoint' || echo 'Skipped...'"
-        ]
     }
 }
