@@ -27,7 +27,7 @@ return
             ],
             "LinkedIn" => [
                 "enabled" => true,
-                "keys" => ["key" => "", "secret" => ""],
+                "keys" => ["id" => "", "secret" => ""],
                 "fields" => []
             ],
             "Amazon" => [

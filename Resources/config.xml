@@ -264,7 +264,7 @@
         </element>
 
         <element type="text" scope="shop">
-            <name>linkedin_keys_key</name>
+            <name>linkedin_keys_id</name>
             <label lang="en">LinkedIn :: Kunden-ID</label>
             <label lang="de">LinkedIn :: Key</label>
             <description lang="en">
