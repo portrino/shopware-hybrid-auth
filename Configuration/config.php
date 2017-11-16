@@ -3,7 +3,7 @@
 /**
  * Adapted HybridAuth config file for Port1HybridAuth shopware plugin
  */
-$hybridauthLib = $_SERVER['DOCUMENT_ROOT'] . '/custom/plugins/Port1HybridAuth/vendor/hybridauth/hybridauth/';
+$hybridauthLib = $_SERVER['DOCUMENT_ROOT'] . 'vendor';
 
 return
     [
@@ -27,7 +27,7 @@ return
             ],
             "LinkedIn" => [
                 "enabled" => true,
-                "keys" => ["key" => "", "secret" => ""],
+                "keys" => ["id" => "", "secret" => ""],
                 "fields" => []
             ],
             "Amazon" => [

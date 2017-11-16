@@ -184,7 +184,7 @@ class ConfigurationService implements ConfigurationServiceInterface
                     }
 
                     if (is_string($configuration)) {
-                        $configValue = $this->config->getByNamespace(
+                        $configValue = (string)$this->config->getByNamespace(
                             $namespace,
                             strtolower($provider) . '_' . $configurationKey
                         );
