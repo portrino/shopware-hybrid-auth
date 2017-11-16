@@ -222,3 +222,11 @@ Enter your Client-ID, which you can find on your _Web Settings_ section into the
 Enter your Client Secret, which you can find on your _Web Settings_ section into the field: "Amazon :: Client Secret".
 
 _! Clear the cache after you have made configuration changes_
+
+## Authors
+
+* **André Wuttig** - *Initial work* - [aWuttig](https://github.com/aWuttig)
+* **Axel Böswetter** - *Bugfixes, Features* - [EvilBMP](https://github.com/EvilBMP)
+* **Andreas Haubold** - *Documentation* - [ahaubold](https://github.com/ahaubold)
+
+See also the list of [contributors](https://github.com/portrino/shopware-hybrid-auth/graphs/contributors) who participated in this project.
