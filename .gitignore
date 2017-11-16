@@ -1,2 +1,4 @@
+/vendor/
 /vendor/hybridauth/**/Providers/Typo3.php
 /vendor/hybridauth/**/thirdparty/Typo3/
+.idea
