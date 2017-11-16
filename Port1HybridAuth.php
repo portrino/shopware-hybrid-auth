@@ -1,12 +1,6 @@
 <?php
 namespace Port1HybridAuth;
 
-/**
- * Copyright (C) portrino GmbH - All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- * Written by André Wuttig <wuttig@portrino.de>, portrino GmbH
- */
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Port1HybridAuth\Service\ConfigurationServiceInterface;

@@ -1,13 +1,6 @@
 <?php
 namespace Port1HybridAuth\Service\Validator;
 
-/**
- * Copyright (C) portrino GmbH - All Rights Reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * Proprietary and confidential
- * Written by André Wuttig <wuttig@portrino.de>, portrino GmbH
- */
-
 use Shopware\Bundle\StoreFrontBundle\Service\ContextServiceInterface;
 use Shopware\Components\Api\Exception\ValidationException;
 use Shopware\Models\Customer\Address;

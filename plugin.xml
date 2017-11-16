@@ -6,7 +6,7 @@
     <version>1.2.2</version>
 
     <copyright>(c) by portrino GmbH</copyright>
-    <license>proprietary</license>
+    <license>MIT</license>
     <description lang="de">
         Dieses Plugin bietet die Möglichkeit, dass sich Kunden über verschiedene Anbieter wie Facebook, Google, Amazon, usw. anzumelden.
     </description>
