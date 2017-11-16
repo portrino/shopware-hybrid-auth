@@ -3,7 +3,7 @@
     <label lang="de">Portrino HybridAuth - Social Login</label>
     <label lang="en">Portrino HybridAuth - Social Login</label>
 
-    <version>1.2.2</version>
+    <version>1.2.3</version>
 
     <copyright>(c) by portrino GmbH</copyright>
     <license>MIT</license>
@@ -17,6 +17,15 @@
     <link>http://www.portrino.de/</link>
     <author>portrino GmbH</author>
     <compatibility minVersion="5.2.0" />
+
+    <changelog version="1.2.3">
+        <changes lang="de">
+            Open Source Release on GitHub.
+        </changes>
+        <changes lang="en">
+            Open Source Release on GitHub.
+        </changes>
+    </changelog>
 
     <changelog version="1.2.2">
         <changes lang="de">
