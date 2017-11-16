@@ -16,6 +16,8 @@ Facebook, Google, etc.
 Give your customers the option to sign in via any social account with the help of the "SocialLogin" to your shop easily 
 and conveniently with just one click.
 
+![alt text](https://github.com/portrino/shopware-hybrid-auth/blob/master/Documentation/Images/login.png)
+
 ### New customer process ###
 If the customer is not yet registered in your shop, he or she will be logged in after successful authentication against 
 one of the social providers.
