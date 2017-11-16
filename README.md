@@ -1,4 +1,4 @@
-# Portrino HybridAuth  #
+# Shopware HybridAuth  #
 
 [![Latest Stable Version](https://poser.pugx.org/portrino/shopware-hybrid-auth/v/stable)](https://packagist.org/packages/portrino/shopware-hybrid-auth)
 [![Total Downloads](https://poser.pugx.org/portrino/shopware-hybrid-auth/downloads)](https://packagist.org/packages/portrino/shopware-hybrid-auth)
