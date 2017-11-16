@@ -1,7 +1,7 @@
 {
     "name": "portrino/shopware-hybrid-auth",
     "description": "Shopware plugin for social/ oauth2 login",
-    "license": "proprietary",
+    "license": "MIT",
     "type": "shopware-plugin",
     "authors": [
         {
