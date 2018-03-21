@@ -14,6 +14,7 @@ use Shopware\Models\Country\Country;
 use Shopware\Models\Customer\Address;
 use Shopware\Models\Customer\Customer;
 use Shopware_Components_Config;
+use \Shopware\Components\DependencyInjection\Container;
 
 /**
  * Class RegisterService
@@ -27,12 +28,22 @@ class CountryService implements CountryServiceInterface
     private $repository;
 
     /**
+     * @var Container
+     */
+    private $container;
+
+    public function __construct(Container $container)
+    {
+        $this->container = $container;
+    }
+
+    /**
      * @return \Shopware\Models\Country\Repository
      */
     public function getRepository()
     {
         if ($this->repository === null) {
-            $this->repository = Shopware()->Models()->getRepository(Country::class);
+            $this->repository = $this->container->get('models')->getRepository(Country::class);
         }
         return $this->repository;
     }

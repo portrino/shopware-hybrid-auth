@@ -131,7 +131,7 @@ class ConfigurationService implements ConfigurationServiceInterface
         $configFile = null,
         $namespace = 'Port1HybridAuth'
     ) {
-        $configFile = (!is_null($configFile) ? $configFile : __DIR__ . '/../Configuration/config.php');
+        $configFile = (!is_null($configFile) ? $configFile : realpath(sprintf('%1$s%2$s..%2$sConfiguration%2$sconfig.php', __DIR__, DIRECTORY_SEPARATOR)));
 
         if (!file_exists($configFile)) {
             throw new \Exception('Hybridauth config does not exist on the given path.', 1);

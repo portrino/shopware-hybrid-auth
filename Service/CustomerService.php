@@ -4,6 +4,7 @@ namespace Port1HybridAuth\Service;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query\Parameter;
 use Shopware\Models\Customer\Customer;
+use \Shopware\Components\DependencyInjection\Container;
 
 /**
  * Class CustomerService
@@ -17,6 +18,16 @@ class CustomerService implements CustomerServiceInterface
     private $repository;
 
     /**
+     * @var Container
+     */
+    private $container;
+
+    public function __construct(Container $container)
+    {
+        $this->container = $container;
+    }
+
+    /**
      * Helper function to get access on the static declared repository
      *
      * @return null|\Shopware\Models\Customer\Repository
@@ -24,7 +35,7 @@ class CustomerService implements CustomerServiceInterface
     protected function getRepository()
     {
         if ($this->repository === null) {
-            $this->repository = Shopware()->Models()->getRepository(Customer::class);
+            $this->repository = $this->container->get('models')->getRepository(Customer::class);
         }
         return $this->repository;
     }
@@ -37,15 +48,15 @@ class CustomerService implements CustomerServiceInterface
      */
     public function getCustomerByIdentity($type, $identity)
     {
-        $builder = Shopware()->Models()->createQueryBuilder();
+        $builder = $this->container->get('models')->createQueryBuilder();
         $builder->select(['customers', 'attribute',])
             ->from('Shopware\Models\Customer\Customer', 'customers')
             ->leftJoin('customers.attribute', 'attribute');
 
-        if (Shopware()->Shop()->getCustomerScope() === true) {
+        if ($this->container->get('shop')->getCustomerScope() === true) {
             $builder->where('customers.shopId = ?1 AND attribute.'. strtolower($type) . 'Identity = ?2')
                 ->setParameters(new ArrayCollection([
-                    new Parameter(1, Shopware()->Shop()->getId()),
+                    new Parameter(1, $this->container->get('shop')->getId()),
                     new Parameter(2, $identity)
                 ]));
         } else {
@@ -69,8 +80,8 @@ class CustomerService implements CustomerServiceInterface
     public function getCustomerByEmail($email)
     {
         /** @var Customer $customer */
-        if (Shopware()->Shop()->getCustomerScope() === true) {
-            $criteria = ['email' => $email, 'shopId' => Shopware()->Shop()->getId()];
+        if ($this->container->get('shop')->getCustomerScope() === true) {
+            $criteria = ['email' => $email, 'shopId' => $this->container->get('shop')->getId()];
         } else {
             $criteria = ['email' => $email];
         }

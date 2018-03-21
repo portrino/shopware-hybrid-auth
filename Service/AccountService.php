@@ -2,6 +2,7 @@
 namespace Port1HybridAuth\Service;
 
 use Shopware\Models\Customer\Customer;
+use \Shopware\Components\DependencyInjection\Container;
 
 /**
  * Class AccountService
@@ -20,12 +21,18 @@ class AccountService implements AccountServiceInterface
     protected $front;
 
     /**
+     * @var Container
+     */
+    protected $container;
+
+    /**
      * AccountService constructor.
      */
-    public function __construct()
+    public function __construct(Container $container)
     {
-        $this->admin = Shopware()->Modules()->Admin();
-        $this->front = Shopware()->Container()->get('Front');
+        $this->container = $container;
+        $this->admin = $this->container->get('modules')->Admin();
+        $this->front = $this->container->get('Front');
     }
 
     /**

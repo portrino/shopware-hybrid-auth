@@ -1,10 +1,10 @@
 <?php
 namespace Port1HybridAuth\Factory;
 
-
 use Port1HybridAuth\Service\AuthenticationServiceInterface;
 use Port1HybridAuth\Service\ConfigurationServiceInterface;
 use SimpleSAML\Module;
+use \Shopware\Components\DependencyInjection\Container;
 
 /**
  * Class AuthenticationServiceFactory
@@ -18,14 +18,21 @@ class AuthenticationServiceFactory implements AuthenticationServiceFactoryInterf
     private $configurationService;
 
     /**
+     * @var Container
+     */
+    private $container;
+
+    /**
      * AuthenticationServiceFactory constructor.
      *
      * @param ConfigurationServiceInterface $configurationService
      */
     public function __construct(
-        ConfigurationServiceInterface $configurationService
+        ConfigurationServiceInterface $configurationService,
+        Container $container
     ) {
         $this->configurationService = $configurationService;
+        $this->container = $container;
     }
 
 
@@ -38,9 +45,8 @@ class AuthenticationServiceFactory implements AuthenticationServiceFactoryInterf
     {
         $result = null;
 
-        if (Shopware()->Container()->has('port1_hybrid_auth.' . strtolower($provider) . '_authentication_service')) {
-            $result = Shopware()
-                ->Container()
+        if ($this->container->has('port1_hybrid_auth.' . strtolower($provider) . '_authentication_service')) {
+            $result = $this->container
                 ->get('port1_hybrid_auth.' . strtolower($provider) . '_authentication_service');
         }
 
