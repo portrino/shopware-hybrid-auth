@@ -1,9 +1,9 @@
 <?php
-
 namespace Port1HybridAuth\Model;
 
 /**
  * Class User
+ *
  * @package Port1HybridAuth\Model
  */
 class User

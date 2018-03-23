@@ -6,10 +6,12 @@ use Shopware\Models\Customer\Customer;
 
 /**
  * Interface CustomerServiceInterface
+ *
  * @package Port1HybridAuth\Service
  */
 interface CustomerServiceInterface
 {
+
     /**
      * @param string $email
      *

@@ -4,7 +4,12 @@ namespace Port1HybridAuth\Subscriber;
 use Enlight\Event\SubscriberInterface;
 use Shopware\Components\DependencyInjection\Container;
 
-abstract class BaseSubscriber implements SubscriberInterface
+/**
+ * Class AbstractSubscriber
+ *
+ * @package Port1HybridAuth\Subscriber
+ */
+abstract class AbstractSubscriber implements SubscriberInterface
 {
     /**
      * @var Container
@@ -14,8 +19,14 @@ abstract class BaseSubscriber implements SubscriberInterface
     /**
      * @var string
      */
-    protected $path = null;
+    protected $path;
 
+    /**
+     * BaseSubscriber constructor.
+     *
+     * @param Container $container
+     * @param string $path
+     */
     public function __construct(Container $container, $path = null)
     {
         $this->container = $container;
@@ -39,18 +50,19 @@ abstract class BaseSubscriber implements SubscriberInterface
 
     /**
      * Returns an array in the form of var association:
-     * list($controller, $request, $view) = self::getEverytihngFromArgs($args);
+     * list($controller, $request, $view) = self::getEverythingFromArgs($args);
      *
-     * @param $args
-     *
-     * @return array
+     * @param \Enlight_Event_EventArgs $args
+     * @param null $element
+     * @return array|mixed|null
      */
-    final public static function getEverytihngFromArgs ($args)
+    final public static function getEverythingFromArgs(\Enlight_Event_EventArgs $args, $element = null)
     {
         /**
          * @var \Enlight_Controller_Action $controller
          */
-        $controller = $args->getSubject();
+        $controller = $args->get('subject');
+
         /**
          * @var \Enlight_Controller_Request_Request $request
          */
@@ -61,10 +73,20 @@ abstract class BaseSubscriber implements SubscriberInterface
          */
         $view = $controller->View();
 
-        return array(
-            $controller,
-            $request,
-            $view
-        );
+        $result = [
+            'controller' => $controller,
+            'request' => $request,
+            'view' => $view
+        ];
+
+        if ($element !== null) {
+            if (array_key_exists($element, $result)) {
+                $result = $result[$element];
+            } else {
+                $result = null;
+            }
+        }
+
+        return $result;
     }
 }

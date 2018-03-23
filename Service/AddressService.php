@@ -3,13 +3,10 @@ namespace Port1HybridAuth\Service;
 
 use Shopware\Bundle\AccountBundle\Service\Validator\AddressValidatorInterface;
 use Shopware\Components\Model\ModelManager;
-use Shopware\Models\Customer\Address;
-use Shopware\Models\Customer\Billing;
-use Shopware\Models\Customer\Customer;
-use Shopware\Models\Customer\Shipping;
 
 /**
  * Class AddressService
+ *
  * @package Port1HybridAuth\Service
  */
 class AddressService extends \Shopware\Bundle\AccountBundle\Service\AddressService

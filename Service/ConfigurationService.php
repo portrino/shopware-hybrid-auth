@@ -1,5 +1,4 @@
 <?php
-
 namespace Port1HybridAuth\Service;
 
 use Port1HybridAuth\Port1HybridAuth;
@@ -7,6 +6,7 @@ use Shopware\Bundle\StoreFrontBundle\Service\ContextServiceInterface;
 
 /**
  * Class ConfigurationService
+ *
  * @package Port1HybridAuth\Service
  */
 class ConfigurationService implements ConfigurationServiceInterface
@@ -70,7 +70,6 @@ class ConfigurationService implements ConfigurationServiceInterface
      * Returns all enabled providers
      *
      * @param string $provider
-     *
      * @return bool
      */
     public function isProviderEnabled($provider)
@@ -82,6 +81,7 @@ class ConfigurationService implements ConfigurationServiceInterface
      * Returns all configurations for all providers
      *
      * @return array
+     * @throws \Exception
      */
     public function getAllProviderConfigurations()
     {
@@ -101,8 +101,8 @@ class ConfigurationService implements ConfigurationServiceInterface
      * Returns the config for the given provider (e.g.: Facebook, LinkedIn, OpenID, Google)
      *
      * @param string $provider
-     *
      * @return array|bool
+     * @throws \Exception
      */
     public function getProviderConfiguration($provider)
     {
@@ -131,7 +131,8 @@ class ConfigurationService implements ConfigurationServiceInterface
         $configFile = null,
         $namespace = 'Port1HybridAuth'
     ) {
-        $configFile = (!is_null($configFile) ? $configFile : realpath(sprintf('%1$s%2$s..%2$sConfiguration%2$sconfig.php', __DIR__, DIRECTORY_SEPARATOR)));
+        $configFile = (!is_null($configFile) ? $configFile : realpath(sprintf('%1$s%2$s..%2$sConfiguration%2$sconfig.php',
+            __DIR__, DIRECTORY_SEPARATOR)));
 
         if (!file_exists($configFile)) {
             throw new \Exception('Hybridauth config does not exist on the given path.', 1);

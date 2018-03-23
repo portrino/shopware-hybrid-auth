@@ -45,7 +45,6 @@
         </service>
 
         <service id="port1_hybrid_auth.authentication_service_factory" class="Port1HybridAuth\Factory\AuthenticationServiceFactory">
-            <argument type="service" id="port1_hybrid_auth.configuration_service" />
             <argument type="service" id="service_container" />
         </service>
 

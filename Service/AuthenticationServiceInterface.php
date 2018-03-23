@@ -4,7 +4,8 @@ namespace Port1HybridAuth\Service;
 use Port1HybridAuth\Model\User;
 
 /**
- * Class SamlAuthenticationService
+ * Interface AuthenticationServiceInterface
+ *
  * @package Port1HybridAuth\Service
  */
 interface AuthenticationServiceInterface
