@@ -1,12 +1,12 @@
 <?php
 namespace Port1HybridAuth;
 
+use ComposerLocator;
 use Shopware\Bundle\AttributeBundle\Service\CrudService;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\ActivateContext;
 use Shopware\Components\Plugin\Context\InstallContext;
-
-use Exception;
+use Shopware\Models\Customer\Customer;
 
 // require our composer dependencies, if not already
 if (file_exists(sprintf('%1$s%2$svendor%2$sautoload.php', __DIR__, DIRECTORY_SEPARATOR))) {
@@ -29,23 +29,18 @@ class Port1HybridAuth extends Plugin
     ];
 
     /**
-     * @inheritdoc
-     */
-    public static function getSubscribedEvents()
-    {
-        return [];
-    }
-
-    /**
      * @param InstallContext $context
+     * @throws \Exception
      */
     public function install(InstallContext $context)
     {
         $this->addIdentityFieldsToUser();
+        $this->activateAmazonProvider();
     }
 
     /**
      * @param ActivateContext $context
+     * @throws \Exception
      */
     public function activate(ActivateContext $context)
     {
@@ -56,6 +51,7 @@ class Port1HybridAuth extends Plugin
      * Adds the identity attribute to the customer model.
      *
      * @return void
+     * @throws \Exception
      */
     private function addIdentityFieldsToUser()
     {
@@ -88,5 +84,50 @@ class Port1HybridAuth extends Plugin
         $metaDataCache = $models->getConfiguration()->getMetadataCacheImpl();
         $metaDataCache->deleteAll();
         $models->generateAttributeModels(['s_user_attributes']);
+    }
+
+    /**
+     * Activate Amazon provider (copy sources from additional-providers into Hybrid)
+     *
+     * @return void
+     * @throws \Exception
+     */
+    private function activateAmazonProvider()
+    {
+        if (ComposerLocator::isInstalled('hybridauth/hybridauth')) {
+            $hybridauthRootPath = ComposerLocator::getPath('hybridauth/hybridauth');
+            $hybridauthAmazonPath = rtrim($hybridauthRootPath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR
+                . 'additional-providers' . DIRECTORY_SEPARATOR
+                . 'hybridauth-amazon';
+            $hybridauthHybridPath = rtrim($hybridauthRootPath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR
+                . 'hybridauth' . DIRECTORY_SEPARATOR
+                . 'Hybrid';
+
+            if (
+                file_exists($hybridauthAmazonPath) && is_dir($hybridauthAmazonPath)
+                    && file_exists($hybridauthHybridPath) && is_dir($hybridauthHybridPath)
+            ) {
+                $source = $hybridauthAmazonPath;
+                $dest = $hybridauthHybridPath;
+
+                /** @var \RecursiveDirectoryIterator $dirIterator */
+                $dirIterator = new \RecursiveIteratorIterator(
+                    new \RecursiveDirectoryIterator($source, \RecursiveDirectoryIterator::SKIP_DOTS),
+                    \RecursiveIteratorIterator::SELF_FIRST
+                );
+                foreach ($dirIterator as $item) {
+                    $subItem = $dest . DIRECTORY_SEPARATOR . $dirIterator->getSubPathName();
+                    if ($item->isDir()) {
+                        if (!file_exists($subItem)) {
+                            if (!mkdir($subItem) && !is_dir($subItem)) {
+                                throw new \RuntimeException(sprintf('Directory "%s" was not created', $subItem));
+                            }
+                        }
+                    } else {
+                        copy($item, $subItem);
+                    }
+                }
+            }
+        }
     }
 }
