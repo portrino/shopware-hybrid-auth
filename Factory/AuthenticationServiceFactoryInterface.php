@@ -4,7 +4,8 @@ namespace Port1HybridAuth\Factory;
 use Port1HybridAuth\Service\AuthenticationServiceInterface;
 
 /**
- * Class AuthenticationServiceFactory
+ * Interface AuthenticationServiceFactoryInterface
+ *
  * @package Port1HybridAuth\Factory
  */
 interface AuthenticationServiceFactoryInterface

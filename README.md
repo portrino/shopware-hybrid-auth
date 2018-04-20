@@ -1,12 +1,14 @@
-# Shopware HybridAuth  #
+# Shopware HybridAuth
 
 [![Latest Stable Version](https://poser.pugx.org/portrino/shopware-hybrid-auth/v/stable)](https://packagist.org/packages/portrino/shopware-hybrid-auth)
 [![Total Downloads](https://poser.pugx.org/portrino/shopware-hybrid-auth/downloads)](https://packagist.org/packages/portrino/shopware-hybrid-auth)
 [![License](https://poser.pugx.org/portrino/shopware-hybrid-auth/license)](https://packagist.org/packages/portrino/shopware-hybrid-auth)
 
-Shopware Plugin for Social Login
+* Social Auth/ Login for Shopware
+  * Required minimum Shopware version: 5.2 
+  * Required PHP version: 7.0
 
-## Product information ##
+## Product information
 
 **Make it easy for your customers to log onto the Shopware shop with the help of the social log-in!**
 
@@ -16,9 +18,9 @@ Facebook, Google, etc.
 Give your customers the option to sign in via any social account with the help of the "SocialLogin" to your shop easily 
 and conveniently with just one click.
 
-![alt text](https://github.com/portrino/shopware-hybrid-auth/blob/master/Documentation/Images/login.png)
+![Screenshot](https://github.com/portrino/shopware-hybrid-auth/blob/master/Documentation/Images/login.png)
 
-### New customer process ###
+### New customer process
 If the customer is not yet registered in your shop, he or she will be logged in after successful authentication against 
 one of the social providers.
  
@@ -28,64 +30,75 @@ wants to checkout without all master data shopware will prompt him to enter his 
 We have refrained from doing a seperate registration after social login, to prevent that the 
 user leaves your shop due the complexity of the registration form.
 
-### Existing customer process ###
+### Existing customer process
 
 Users who are already a customer in your shop, as long as the social login cookie is still valid 
 are automatically logged into the shop. If the cookie is not available, the customer can sign in 
 to the shop through the social log-in. A new registration is not needed here.
 
-#### Special Case "equal email addresses" ####
+#### Special Case "equal email addresses"
 
 If the user logs in via Google and wants to log in later via Facebook an he has the same email address on both social 
 providers we **connect** the identity from Facebook to the already existing Google customer account on the shopware 
 system.
 
-#### Special Case "passwort" ####
+#### Special Case "passwort"
 
 The password will be during the login process, because shopware needs a password for each user. Unfortunatly
 the user not know this password. The only way he can reset this is to click "Password Forgot?" and reset the 
 passwort via email.
 
-### Logout process ###
+### Logout process
 
 If the user presses the "Logout button", we logout him from all social providers so that he should reauthenticate 
 when visiting the shop againt. Logout from all providers does not mean logging him out from Facebook or Google - 
 that is not possible ;-) 
 
-## Installation ##
+## Installation
 
-* Download the extension via Shopware Store
-* Install it via Plugin Manager
+### Zip Installation package for the Shopware Plugin Manager
 
-## Configuration ##
+* Download the [latest plugin version](https://github.com/portrino/shopware-hybrid-auth/releases/latest/) (e.g. `Port1HybridAuth-1.3.0.zip`)
+* Upload and install/ activate the plugin using the Plugin Manager
+
+### Git Version
+* Checkout Plugin in `/custom/plugins/Port1HybridAuth`
+* Change to directory and run `composer install` to install the dependencies
+* Install/ activate the plugin using the Plugin Manager
+
+### Install with composer
+* Change to your root installation of Shopware
+* Run command `composer require --update-no-dev portrino/shopware-hybrid-auth` and install/ activate the plugin using the Plugin Manager 
+
+## Configuration
 
 * configuration takes completely place in shopware backend plugin config via plugin manager
 
-### General ###
+### General
 
-#### Include FontAwesome ####
+#### Include FontAwesome
 
 Include FontAwesome 4.7.0 (http://fontawesome.io/) from CDN to display nice icons for the social login buttons. Disable it if you already have included FontAweseome 
 or want to override default styling.
 
-#### Country Fallback ####
+#### Country Fallback
 
 Select the country which should be used if the plugin cannout determine a country for the customer during social login. A country is mandatory 
-for the customer so you should select the country here.
+for the customer so you should select a country here.
  
 ...we will optimize this process soon
 
-#### Hybrid Auth ####
+#### Hybrid Auth
 
-#### Debug Mode ####
+#### Debug Mode
 
 You can choose one of the debug modes. The are the same as hybridauth library uses. You can read more about this here http://hybridauth.sourceforge.net/userguide/Debugging_and_Logging.html
 
-#### Debug File ####
+#### Debug File
 
 Enter the path where the debug file is located here.
 
-### Facebook ###
+### Facebook
 
 At first go to https://developers.facebook.com/ and register a new application.
 
@@ -101,26 +114,26 @@ At first go to https://developers.facebook.com/ and register a new application.
   http://www.shopware-portrino.de/hybridauth?hauth_done=Facebook
 ```
 
-#### Enabled ####
+#### Enabled
 
 Set Facebook :: Enabled to `Yes`.
 
-#### App-ID ####
+#### App-ID
 
 Enter your App-ID, which you can find on your application dashboard into the field: "Facebook :: App-ID".
 
-#### App-Secret ####
+#### App-Secret
 
 Enter your App-Secret, which you can find on your application dashboard into the field: "Facebook :: App-Secret".
 
-#### Scope ####
+#### Scope
 
 Enter your custom scope in this textarea. 
 More information can be found here: https://developers.facebook.com/docs/facebook-login/permissions .
 
 _! Clear the cache after you have made configuration changes_
 
-### Google ###
+### Google
 
 At first go to https://console.developers.google.com/ and create a new application
 
@@ -136,26 +149,26 @@ At first go to https://console.developers.google.com/ and create a new applicati
   * this URL __MUST__ look like this:
    
 ```  
-  http://www.shopware-portrino.de/hybridauth?hauth_done
+  http://www.shopware-portrino.de/hybridauth?hauth_done=Google
 ```
 
 * store the _client ID_ and _client secret_ or copy it directly into your plugin configuration
 
 * Enable Google+ API in your API console
 
-#### Enabled ####
+#### Enabled
 
 Set Google :: Enabled to `Yes`.
 
-#### Client-ID ####
+#### Client-ID
 
 Enter your Client-ID, which you can find on your application credentials section into the field: "Google :: Client-ID".
 
-#### Clientkey ####
+#### Clientkey
 
 Enter your Clientkey, which you can find on your application credentials section into the field: "Google :: Clientkey".
 
-#### Scope ####
+#### Scope
 
 Enter custom scopes to retrieve more or less information from google by adding them here. More information can be found 
 here: https://developers.google.com/identity/protocols/googlescopes .
@@ -163,7 +176,7 @@ here: https://developers.google.com/identity/protocols/googlescopes .
 _! Clear the cache after you have made configuration changes_
 
 
-### Amazon ###
+### Amazon
 
 * first of all you have to use SSL to get amazon social login working
 
@@ -182,23 +195,23 @@ At first go to https://sellercentral.amazon.com/gp/homepage.html and register a 
 
 * store the _client ID_ and _client secret_ or copy it directly into your plugin configuration
 
-#### Enabled ####
+#### Enabled
 
 Set Amazon :: Enabled to `Yes`.
 
-#### Client-ID ####
+#### Client-ID
 
 Enter your Client-ID, which you can find on your _Web Settings_ section into the field: "Amazon :: Client-ID".
 
-#### Client Secret ####
+#### Client Secret
 
 Enter your Client Secret, which you can find on your _Web Settings_ section into the field: "Amazon :: Client Secret".
 
 _! Clear the cache after you have made configuration changes_
 
-### LinkedIn ###
+### LinkedIn
 
-#### Enabled ####
+#### Enabled
 
 Set LinkedIn :: Enabled to `Yes`.
 
@@ -215,11 +228,11 @@ At first go to https://www.linkedin.com/developer/apps/ and create a new applica
 
 * store the _client ID_ and _client secret_ or copy it directly into your plugin configuration
 
-#### Client-ID ####
+#### Client-ID
 
 Enter your Client-ID, which you can find on your _Web Settings_ section into the field: "Amazon :: Client-ID".
 
-#### Client Secret ####
+#### Client Secret
 
 Enter your Client Secret, which you can find on your _Web Settings_ section into the field: "Amazon :: Client Secret".
 

@@ -21,6 +21,8 @@ class Shopware_Controllers_Frontend_SocialUser extends \Enlight_Controller_Actio
 
     /**
      * action login
+     *
+     * @throws \Exception
      */
     public function loginAction()
     {

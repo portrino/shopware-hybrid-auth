@@ -1,15 +1,15 @@
 <?php
 namespace Port1HybridAuth\Subscriber;
 
-use Shopware\Components\DependencyInjection\Container;
-use Shopware\Models\Customer\Customer;
 use Port1HybridAuth\Service\ConfigurationServiceInterface;
 use Port1HybridAuth\Service\SingleSignOnServiceInterface;
+use Shopware\Models\Customer\Customer;
 
-class PluginFrontendSubscriber extends BaseSubscriber
+class PluginFrontendSubscriber extends AbstractSubscriber
 {
+
     /**
-     * @inheritdoc
+     * @return array
      */
     public static function getSubscribedEvents()
     {
@@ -21,11 +21,12 @@ class PluginFrontendSubscriber extends BaseSubscriber
 
     /**
      * @param \Enlight_Event_EventArgs $args
+     * @throws \Exception
      */
     public function onFrontendPostDispatchRegister(\Enlight_Event_EventArgs $args)
     {
-        /** @var \Enlight_Controller_Action $controller */
-        list($controller, $request, $view) = self::getEverytihngFromArgs($args);
+        /** @var \Enlight_View_Default $view */
+        $view = self::getEverythingFromArgs($args, 'view');
 
         /** @var ConfigurationServiceInterface $configurationService */
         $configurationService = $this->container->get('port1_hybrid_auth.configuration_service');
@@ -44,11 +45,12 @@ class PluginFrontendSubscriber extends BaseSubscriber
 
     /**
      * @param \Enlight_Event_EventArgs $args
+     * @throws \Exception
      */
     public function onFrontendPostDispatchAccount(\Enlight_Event_EventArgs $args)
     {
-        /** @var \Enlight_Controller_Action $controller */
-        list($controller, $request, $view) = self::getEverytihngFromArgs($args);
+        /** @var \Enlight_Controller_Request_Request $request */
+        $request = self::getEverythingFromArgs($args, 'request');
         $actionName = strtolower($request->getActionName());
 
         if ($actionName === 'profile') {

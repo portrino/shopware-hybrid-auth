@@ -1,8 +1,8 @@
 <?php
 namespace Port1HybridAuth\Service;
 
+use Shopware\Components\DependencyInjection\Container;
 use Shopware\Models\Customer\Customer;
-use \Shopware\Components\DependencyInjection\Container;
 
 /**
  * Class AccountService
@@ -27,6 +27,9 @@ class AccountService implements AccountServiceInterface
 
     /**
      * AccountService constructor.
+     *
+     * @param Container $container
+     * @throws \Exception
      */
     public function __construct(Container $container)
     {
@@ -49,8 +52,8 @@ class AccountService implements AccountServiceInterface
      * Logs in the user for the given customer object
      *
      * @param Customer $customer
-     *
-     * @return bool|array
+     * @return array|bool
+     * @throws \Exception
      */
     public function loginUser($customer)
     {

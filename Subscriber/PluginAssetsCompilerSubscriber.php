@@ -4,7 +4,7 @@ namespace Port1HybridAuth\Subscriber;
 use Doctrine\Common\Collections\ArrayCollection;
 use Shopware\Components\Theme\LessDefinition;
 
-class PluginAssetsCompilerSubscriber extends BaseSubscriber
+class PluginAssetsCompilerSubscriber extends AbstractSubscriber
 {
     /**
      * @inheritdoc

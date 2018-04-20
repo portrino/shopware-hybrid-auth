@@ -1,7 +1,5 @@
 <?php
-
 namespace Port1HybridAuth\Service\AuthenticationService;
-
 
 use Port1HybridAuth\Service\AbstractAuthenticationService;
 

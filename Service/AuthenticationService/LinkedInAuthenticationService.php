@@ -1,5 +1,4 @@
 <?php
-
 namespace Port1HybridAuth\Service\AuthenticationService;
 
 use Port1HybridAuth\Model\User;
@@ -7,7 +6,8 @@ use Port1HybridAuth\Service\AbstractAuthenticationService;
 
 /**
  * Class LinkedInAuthenticationService
- * @package Port1HybridAuth\Service\SamlAuthenticationService
+ *
+ * @package Port1HybridAuth\Service\AuthenticationService
  */
 class LinkedInAuthenticationService extends AbstractAuthenticationService
 {

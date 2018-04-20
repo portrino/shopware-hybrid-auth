@@ -3,6 +3,7 @@ namespace Port1HybridAuth\Service;
 
 /**
  * Interface ConfigurationServiceInterface
+ *
  * @package Port1HybridAuth\Service
  */
 interface ConfigurationServiceInterface
