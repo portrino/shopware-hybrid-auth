@@ -6,6 +6,7 @@ use Shopware\Models\Country\Country;
 
 /**
  * Interface CountryServiceInterface
+ *
  * @package Port1HybridAuth\Service
  */
 interface CountryServiceInterface

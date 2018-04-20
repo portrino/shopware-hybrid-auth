@@ -1,22 +1,13 @@
 <?php
 namespace Port1HybridAuth\Service;
 
-use Doctrine\DBAL\Connection;
 use Port1HybridAuth\Model\User;
-use Shopware\Bundle\AccountBundle\Service\AddressServiceInterface;
-use Shopware\Bundle\AccountBundle\Service\Validator\CustomerValidatorInterface;
-use Shopware\Bundle\StoreFrontBundle\Service\ContextServiceInterface;
-use Shopware\Bundle\StoreFrontBundle\Struct\ShopContextInterface;
-use Shopware\Components\Model\ModelManager;
-use Shopware\Components\NumberRangeIncrementerInterface;
-use Shopware\Components\Password\Manager;
+use Shopware\Components\DependencyInjection\Container;
 use Shopware\Models\Country\Country;
-use Shopware\Models\Customer\Address;
-use Shopware\Models\Customer\Customer;
-use Shopware_Components_Config;
 
 /**
- * Class RegisterService
+ * Class CountryService
+ *
  * @package Port1HybridAuth\Service
  */
 class CountryService implements CountryServiceInterface
@@ -27,20 +18,31 @@ class CountryService implements CountryServiceInterface
     private $repository;
 
     /**
+     * @var Container
+     */
+    private $container;
+
+    public function __construct(Container $container)
+    {
+        $this->container = $container;
+    }
+
+    /**
      * @return \Shopware\Models\Country\Repository
+     * @throws \Exception
      */
     public function getRepository()
     {
         if ($this->repository === null) {
-            $this->repository = Shopware()->Models()->getRepository(Country::class);
+            $this->repository = $this->container->get('models')->getRepository(Country::class);
         }
         return $this->repository;
     }
 
     /**
      * @param string $isoCode
-     *
      * @return null|Country
+     * @throws \Exception
      */
     public function getCountryByCountryIso($isoCode)
     {
@@ -53,9 +55,9 @@ class CountryService implements CountryServiceInterface
     }
 
     /**
-     * @param string $countryEn
-     *
+     * @param $countryEn
      * @return null|Country
+     * @throws \Exception
      */
     public function getCountryByIsoName($countryEn)
     {
@@ -68,9 +70,9 @@ class CountryService implements CountryServiceInterface
     }
 
     /**
-     * @param string $countryName
-     *
+     * @param $countryName
      * @return null|Country
+     * @throws \Exception
      */
     public function getCountryByCountryName($countryName)
     {
@@ -84,8 +86,8 @@ class CountryService implements CountryServiceInterface
 
     /**
      * @param int $id
-     *
      * @return null|Country
+     * @throws \Exception
      */
     public function getCountryById($id)
     {
@@ -99,8 +101,8 @@ class CountryService implements CountryServiceInterface
 
     /**
      * @param User $user
-     *
      * @return null|Country
+     * @throws \Exception
      */
     public function getBestMatchingCountryForUser($user)
     {

@@ -13,11 +13,16 @@ class Shopware_Controllers_Frontend_SocialUser extends \Enlight_Controller_Actio
     {
         /** @var \Shopware\Components\Plugin $plugin */
         $plugin = $this->get('kernel')->getPlugins()['Port1HybridAuth'];
-        $this->get('template')->addTemplateDir($plugin->getPath() . '/Resources/views/');
+        $this->get('template')
+            ->addTemplateDir(
+                sprintf('%1$s%2$sResources%2$sviews%2$s', $plugin->getPath(), \DIRECTORY_SEPARATOR)
+            );
     }
 
     /**
      * action login
+     *
+     * @throws \Exception
      */
     public function loginAction()
     {

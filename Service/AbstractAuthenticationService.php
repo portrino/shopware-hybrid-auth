@@ -1,9 +1,7 @@
 <?php
-
 namespace Port1HybridAuth\Service;
 
 use Port1HybridAuth\Model\User;
-use Shopware\Components\Plugin\ConfigReader;
 
 /**
  * Class AbstractAuthenticationService
@@ -102,7 +100,6 @@ abstract class AbstractAuthenticationService implements AuthenticationServiceInt
      */
     public function getUser()
     {
-
         $user = null;
 
         if ($this->isAuthenticated()) {

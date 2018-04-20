@@ -5,6 +5,7 @@ use Shopware\Models\Customer\Customer;
 
 /**
  * Interface AccountServiceInterface
+ *
  * @package Port1HybridAuth\Service
  */
 interface AccountServiceInterface

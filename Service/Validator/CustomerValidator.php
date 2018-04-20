@@ -60,7 +60,6 @@ class CustomerValidator extends \Shopware\Bundle\AccountBundle\Service\Validator
 
     /**
      * @param Customer $customer
-     *
      * @throws ValidationException
      */
     public function validate(Customer $customer)
