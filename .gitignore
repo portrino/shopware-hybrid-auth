@@ -1,2 +1,19 @@
-/.idea/
+#
+# Ignore temporary files (left by editors and OS)
+*~
+*.bak
+*.swp
+.DS_Store
+#
+# Ignore by common IDEs used directories/files
+nbproject
+*.idea
+*.project
+.buildpath
+.settings
+.TemporaryItems
+.webprj
+#
+# Ignore composer stuff
+/bin/
 /vendor/
