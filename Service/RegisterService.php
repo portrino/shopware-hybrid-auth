@@ -155,7 +155,7 @@ class RegisterService extends \Shopware\Bundle\AccountBundle\Service\RegisterSer
     {
         $result = false;
         if ($user->getEmail() === $customer->getEmail()) {
-            call_user_func(
+            \call_user_func(
                 [$customer->getAttribute(), 'set' . ucfirst($user->getType()) . 'Identity'],
                 $user->getId()
             );

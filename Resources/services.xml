@@ -4,6 +4,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="port1_hybrid_auth.single_sign_on_service" class="Port1HybridAuth\Service\SingleSignOnService">
+            <argument type="service" id="service_container" />
             <argument type="service" id="port1_hybrid_auth.authentication_service_factory" />
             <argument type="service" id="port1_hybrid_auth.customer_service" />
             <argument type="service" id="port1_hybrid_auth.account_service" />
