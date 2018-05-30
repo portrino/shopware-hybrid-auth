@@ -1,8 +1,8 @@
 <?php
-
 namespace Port1HybridAuth\Service;
 
 use Port1HybridAuth\Factory\AuthenticationServiceFactoryInterface;
+use Shopware\Components\DependencyInjection\Container;
 use Shopware\Models\Customer\Customer;
 
 /**
@@ -11,10 +11,16 @@ use Shopware\Models\Customer\Customer;
  */
 class SingleSignOnService implements SingleSignOnServiceInterface
 {
+
     /**
      * @var \sAdmin
      */
     protected $admin;
+
+    /**
+     * @var Container
+     */
+    protected $container;
 
     /**
      * @var CustomerServiceInterface
@@ -49,23 +55,16 @@ class SingleSignOnService implements SingleSignOnServiceInterface
     /**
      * SingleSignOnService constructor.
      *
-     * @param AuthenticationServiceFactoryInterface $authenticationServiceFactory
-     * @param CustomerServiceInterface $customerService
-     * @param AccountServiceInterface $accountService
-     * @param RegisterServiceInterface $registerService
+     * @param Container $container
      */
-    public function __construct(
-        AuthenticationServiceFactoryInterface $authenticationServiceFactory,
-        CustomerServiceInterface $customerService,
-        AccountServiceInterface $accountService,
-        RegisterServiceInterface $registerService,
-        LogoutServiceInterface $logoutService
-    ) {
-        $this->authenticationServiceFactory = $authenticationServiceFactory;
-        $this->customerService = $customerService;
-        $this->accountService = $accountService;
-        $this->registerService = $registerService;
-        $this->logoutService = $logoutService;
+    public function __construct(Container $container) {
+        $this->container = $container;
+
+        $this->authenticationServiceFactory = $this->container->get('port1_hybrid_auth.authentication_service_factory');
+        $this->customerService = $this->container->get('port1_hybrid_auth.customer_service');
+        $this->accountService = $this->container->get('port1_hybrid_auth.account_service');
+        $this->registerService = $this->container->get('port1_hybrid_auth.register_service');
+        $this->logoutService = $this->container->get('port1_hybrid_auth.logout_service');
     }
 
     /**
@@ -80,62 +79,47 @@ class SingleSignOnService implements SingleSignOnServiceInterface
 
         $isUserLoggedIn = $this->accountService->checkUser();
 
-        /**
-         * SW LOGIN
-         */
+        // active sw login session
         if ($isUserLoggedIn) {
             return $isUserLoggedIn;
-        } else {
-            if ($this->authenticationService != null) {
+        }
 
-                /**
-                 * SSO LOGIN
-                 */
-                $isAuthenticated = $this->authenticationService->login();
-
-                if ($isAuthenticated) {
-
-                    /**
-                     * GET USER DATA FROM SSO PROVIDER
-                     */
-                    $user = $this->authenticationService->getUser();
-
-                    if ($user != null && $user->getEmail() != '') {
-
-                        /**
-                         * GET SW CUSTOMER
-                         */
-                        $customer = $this->customerService->getCustomerByIdentity($provider, $user->getId());
-
-                        if ($customer != null) {
-
-                            /**
-                             * NEW LOGIN
-                             */
-                            $isUserLoggedIn = $this->tryLoginCustomer($customer);
+        if ($this->authenticationService !== null) {
+            // sso login
+            $isAuthenticated = $this->authenticationService->login();
+            $customer = null;
+            if ($isAuthenticated) {
+                // get user data from sso provider
+                $user = $this->authenticationService->getUser();
+                if ($user !== null && $user->getEmail() !== '') {
+                    // get sw customer
+                    $customer = $this->customerService->getCustomerByIdentity($provider, $user->getId());
+                    if ($customer !== null) {
+                        // new login
+                        $isUserLoggedIn = $this->tryLoginCustomer($customer);
+                    } else {
+                        $customer = $this->customerService->getCustomerByEmail($user->getEmail());
+                        if ($customer !== null) {
+                            // connect
+                            $customer = $this->registerService->connectUserWithExistingCustomer($user, $customer);
                         } else {
-                            $customer = $this->customerService->getCustomerByEmail($user->getEmail());
-                            if ($customer != null) {
-
-                                /**
-                                 * CONNECT
-                                 */
-                                $customer = $this->registerService->connectUserWithExistingCustomer($user, $customer);
-                                $isUserLoggedIn = $this->tryLoginCustomer($customer);
-                            } else {
-
-                                /**
-                                 * REGISTER
-                                 */
-                                $customer = $this->registerService->registerCustomerByUser($user);
-                                $isUserLoggedIn = $this->tryLoginCustomer($customer);
-                            }
+                            // register
+                            $customer = $this->registerService->registerCustomerByUser($user);
                         }
+                        $isUserLoggedIn = $this->tryLoginCustomer($customer);
                     }
-                } else {
-                    $isUserLoggedIn = false;
                 }
+            } else {
+                $isUserLoggedIn = false;
             }
+
+            $this->container->get('events')->notify(
+                'Port1HybridAuth_Service_SingleSignOn_CustomerLoggedIn',
+                [
+                    'customer' => $customer,
+                    'isUserLoggedIn' => $isUserLoggedIn
+                ]
+            );
         }
         return $isUserLoggedIn;
     }
@@ -149,7 +133,7 @@ class SingleSignOnService implements SingleSignOnServiceInterface
     {
         $result = false;
 
-        if ($customer != null) {
+        if ($customer !== null) {
             $checkUser = $this->accountService->loginUser($customer);
             if (empty($checkUser['sErrorMessages'])) {
                 $result = true;
